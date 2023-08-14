@@ -7,7 +7,7 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Flex bg={colorMode === "dark" ? "black.500" : "white.500"} px={12} py={6} justifyContent="space-between" alignItems="center">
+    <Flex bg={colorMode === "dark" ? "black.500" : "white.500"} px={{ base: 4, md: 12 }} py={6} justifyContent="space-between" alignItems="center">
       <Flex align="center">
         <Box flex="1">
           <Image src="https://i.imgur.com/Bd6NzVy.png" alt="Email" height="1.5em" objectFit="cover" />
@@ -30,7 +30,7 @@ const Navbar = () => {
           Contact
         </Link>
       </Box>
-      <Button onClick={toggleColorMode} mx={4} p={0}>
+      <Button onClick={toggleColorMode} mx={{ base: 2, md: 4 }} p={0}>
         {colorMode === "dark" ? <FaMoon size="1.2em" /> : <FaSun size="1.2em" />}
       </Button>
     </Flex>
