@@ -1,0 +1,4 @@
+baseURL = 'http://blog.zkemail.xyz/'
+languageCode = 'en-us'
+title = 'ZK Email Blog'
+theme = "ficurinia"
