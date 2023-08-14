@@ -134,7 +134,7 @@ const MainPage = () => {
               Work with Us
             </Heading>
           </Center>
-          <Text mt={4}>Help us expand our vision, and work with incredible folks who helped create these projects like Sampriti, Sora, Saleel, Nathan, Jern, Tyler, Andy, and others! Projects include email recovery with multisigs, better designs, architecture for anonymous wallets, identity verification methods on various attestation platforms, working to onboard new people to crypto, and in-person experiments. Dm @yush_g on Twitter or join our (upcoming) Telegram and Discord! </Text>
+          <Text mt={4}>Help us expand our vision, and work with incredible folks who helped create these projects like Sampriti, Sora, Saleel, Nathan, Jern, Tyler, Andy, and others! Projects include email recovery with multisigs, better designs, architecture for anonymous wallets, identity verification methods on various attestation platforms, working to onboard new people to crypto, and in-person experiments. Dm @yush_g or @SoraSue77 on Twitter, or @yush_g or @sorasue on Telegram, or join our (upcoming) Telegram and Discord groups for more discussion! </Text>
         </Box>
       </Center>
     </Box>
