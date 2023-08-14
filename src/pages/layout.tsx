@@ -1,13 +1,8 @@
-import './globals.css'
-import type { Metadata } from 'next'
+import '../app/globals.css'
+import { metadata } from '../lib/metadata'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'ZK Email',
-  description: 'Proof of Email Hub',
-}
 
 export default function RootLayout({
   children,
