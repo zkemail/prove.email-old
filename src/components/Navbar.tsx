@@ -29,10 +29,10 @@ const Navbar = () => {
         <Link as={NextLink} href="/contact" color={colorMode === "dark" ? "white" : "black"} mx={4}>
           Contact
         </Link>
-        <Button onClick={toggleColorMode} mx={4}>
-          {colorMode === "dark" ? <FaMoon /> : <FaSun />}
-        </Button>
       </Box>
+      <Button onClick={toggleColorMode} mx={4} p={0}>
+        {colorMode === "dark" ? <FaMoon size="1.2em" /> : <FaSun size="1.2em" />}
+      </Button>
     </Flex>
   );
 };
