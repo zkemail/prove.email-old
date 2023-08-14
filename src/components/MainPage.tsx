@@ -17,7 +17,7 @@ const MainPage = () => {
               Proof of Email
             </Heading>
           </Center>
-          <Flex direction="row" mx={40}>
+          <Flex direction="row" mx={{ base: 4, md: 40 }}>
             <VStack align="start">
               <Heading as="h2" size="l">
                 The future of identity verification and transactions on Ethereum
@@ -33,7 +33,7 @@ const MainPage = () => {
               Applications
             </Heading>
           </Center>
-          <SimpleGrid columns={3} spacing={10} mt={4} mx={24}>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} mt={4} mx={{ base: 4, md: 24 }}>
             <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
               <Heading size="md">Email Wallet</Heading>
               <Text mt={2}>Email a relayer in order to transfer money or transact on Ethereum, anonymously.</Text>
@@ -96,7 +96,7 @@ const MainPage = () => {
           </SimpleGrid>
         </Box>
 
-        <Box mb={8} mx={40} bg={blueColor} borderRadius="md" boxShadow="lg">
+        <Box mb={8} mx={{ base: 4, md: 40 }} bg={blueColor} borderRadius="md" boxShadow="lg">
           <Center>
             <Heading as="h2" size="lg" my={8}>
               Technology
@@ -104,7 +104,7 @@ const MainPage = () => {
           </Center>
           <Flex mb={2}>
             <Center flex="1">
-              <Text mx={16} mb={6}>
+              <Text mx={{ base: 4, md: 12 }} mb={6}>
                 We directly verify the signatures on your emails within a zk proof, including regex parsing within zk. Read our
                 {" "}
                 <Link as="a" href="https://blog.aayushg.com/posts/zkemail/" color="teal.500">
@@ -128,7 +128,7 @@ const MainPage = () => {
           </Flex>
         </Box>
 
-        <Box mb={8} mx={40}>
+        <Box mb={8} mx={{ base: 4, md: 40 }}>
           <Center>
             <Heading as="h2" size="lg">
               Work with Us
