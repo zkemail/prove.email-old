@@ -3,7 +3,11 @@ import { Box, Flex, Heading, Link, Text, Button, useColorMode, Stack, Image, Cen
 import NextLink from "next/link";
 import { FaMoon, FaSun } from "react-icons/fa";
 
-const Navbar = () => {
+interface NavbarProps {
+  onNavClick: (navItem: string) => void;
+}
+
+const Navbar = ({onNavClick}: NavbarProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -17,9 +21,9 @@ const Navbar = () => {
         </Link>
       </Flex>
       <Box>
-        <Link as={NextLink} href="/blog" color={colorMode === "dark" ? "white" : "black"} mx={4}>
+        <Button onClick={() => { onNavClick('blog'); window.location.href='/blog'; }} color={colorMode === "dark" ? "white" : "black"} mx={4}>
           Blog
-        </Link>
+        </Button>
         <Link as={NextLink} href="/docs" color={colorMode === "dark" ? "white" : "black"} mx={4}>
           Docs
         </Link>
