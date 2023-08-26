@@ -39,7 +39,7 @@ interface Params {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = () => {
   const posts = getAllPosts();
 
   return {
