@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { MDXRemote } from "next-mdx-remote";
-import { GetStaticProps, GetStaticPaths } from "next";
-import { Post, getAllPosts, getPostBySlug } from "../../lib/posts";
+import { GetStaticProps } from "next";
+import { Post, getAllPosts } from "../../lib/posts";
 
 interface Props {
   posts: Post[];
