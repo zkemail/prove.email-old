@@ -61,7 +61,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
         </Link>
         <Link
           as={NextLink}
-          href="/docs"
+          href="https://github.com/zkemail"
           color={colorMode === "dark" ? "white" : "black"}
           mx={4}
         >
@@ -69,7 +69,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
         </Link>
         <Link
           as={NextLink}
-          href="/demo "
+          href="#demos"
           color={colorMode === "dark" ? "white" : "black"}
           mx={4}
         >
@@ -77,7 +77,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
         </Link>
         <Link
           as={NextLink}
-          href="/contact"
+          href="https://t.me/yush_g"
           color={colorMode === "dark" ? "white" : "black"}
           mx={4}
         >

@@ -28,7 +28,7 @@ const MainPage = () => {
         </Box>
 
         <Box my={16}>
-          <Center>
+          <Center id="demos">
             <Heading as="h2" size="lg">
               Applications
             </Heading>
