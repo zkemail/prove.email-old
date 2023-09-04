@@ -14,22 +14,29 @@ type Params = {
 };
 
 export default function Post({ post }: PostProps) {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
   return (
-    <div>
+    <div style={{ 
+      padding: '0 1em', 
+      width: isMobile ? '100%' : '66.66%', 
+      margin: isMobile ? '0' : '0 auto' 
+    }}>
+      <h1>{post.title}</h1>
       <MDXRemote {...post.content} />
     </div>
   );
 }
 
 export const getStaticProps = async ({ params }: Params) => {
-  const post = getPostBySlug(params.slug);
-  const mdxSource = await serialize(post.content);
+  const post = await getPostBySlug(params.slug);
+  // const mdxSource = await serialize(post.content);
 
   return {
     props: {
       post: {
         ...post,
-        content: mdxSource,
+        content: post.content,
       },
     },
   };

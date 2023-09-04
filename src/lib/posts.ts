@@ -19,9 +19,9 @@ export async function getAllPosts(): Promise<Post[]> {
     posts.map(async (filename) => {
       const markdownWithMeta = fs.readFileSync(`posts/${filename}`);
 
-      const { data } = matter(markdownWithMeta);
+      const { data, content } = matter(markdownWithMeta);
 
-      const mdxSource = await serialize(data.content);
+      const mdxSource = await serialize(content);
 
       return {
         slug: filename.replace(".md", ""),
@@ -34,16 +34,18 @@ export async function getAllPosts(): Promise<Post[]> {
   return processedPosts;
 }
 
-export function getPostBySlug(slug: string): Post {
+export async function getPostBySlug(slug: string): Promise<Post> {
   const filePath = path.join("posts", `${slug}.md`);
   const fileContents = fs.readFileSync(filePath, "utf8");
 
   const { data, content } = matter(fileContents);
 
+  const mdxSource = await serialize(content); // serialize the content
+
   return {
     slug: slug,
     title: data.title,
     date: data.date.toISOString(),
-    content: content,
+    content: mdxSource,
   };
 }

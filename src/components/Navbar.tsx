@@ -64,6 +64,8 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
           href="https://github.com/zkemail"
           color={colorMode === "dark" ? "white" : "black"}
           mx={4}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Docs
         </Link>
