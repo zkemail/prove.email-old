@@ -19,8 +19,8 @@ const routes = [
     pathname: "https://github.com/zkemail",
   },
   {
-    name: "Demo",
-    pathname: "#demos",
+    name: "Demos",
+    pathname: "https://prove.email/#demos",
   },
   {
     name: "Contact",
