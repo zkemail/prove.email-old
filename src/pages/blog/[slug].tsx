@@ -1,7 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import { ReactNode } from 'react';
 import { Post as PostType, getAllPosts, getPostBySlug } from "../../lib/posts";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
+import { MDXProvider } from '@mdx-js/react';
+import { ThemeUIProvider } from 'theme-ui'
+import preset from '@theme-ui/preset-tailwind'
 
 interface PostProps {
   post: PostType;
@@ -13,18 +17,18 @@ type Params = {
   };
 };
 
-export default function Post({ post }: PostProps) {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
+export default function Post({ post }: PostProps) {
   return (
-    <div style={{ 
-      padding: '0 1em', 
-      width: isMobile ? '100%' : '66.66%', 
-      margin: isMobile ? '0' : '0 auto' 
-    }}>
-      <h1>{post.title}</h1>
-      <MDXRemote {...post.content} />
-    </div>
+    <ThemeUIProvider theme={preset}>
+      <MDXProvider>
+        <div style={{padding: '80px'}}>
+          <h1>{post.title}</h1>
+          <MDXRemote {...post.content} />
+        </div>
+      </MDXProvider>
+    </ThemeUIProvider>
+
   );
 }
 
