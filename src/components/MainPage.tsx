@@ -1,6 +1,8 @@
-import { Box, Flex, Heading, Link, Text, Button, useColorMode, Stack, Image, Center, SimpleGrid, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, Text, Button, useColorMode, Stack, Image, Center, SimpleGrid, VStack, Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/react";
-
+import Navbar from "@/components/Navbar";
+import { ChakraProvider } from "@chakra-ui/react";
+// import theme from "./theme";
 // inside your MainPage component
 
 const MainPage = () => {
@@ -95,8 +97,46 @@ const MainPage = () => {
             </Box>
           </SimpleGrid>
         </Box>
-
-        <Box mb={8} mx={{ base: 4, md: 40 }} bg={blueColor} borderRadius="md" boxShadow="lg">
+          {/* <Center id="demos">
+            <Heading as="h2" size="lg">
+              Use Our SDKs
+            </Heading>
+          </Center>
+          <SimpleGrid spacing={3} columns={{ base: 1, md: 2, lg: 3 }}>          <Card>
+            <CardHeader>
+              <Heading size='md'>Regex Compiler</Heading>
+            </CardHeader>
+            <CardBody>
+              <Text>Convert your regex into circom or halo2.</Text>
+            </CardBody>
+            <CardFooter>
+              <Button>View here</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <Heading size='md'>ZK-Email Circuits and Contracts</Heading>
+            </CardHeader>
+            <CardBody>
+              <Text>Use our helpers in our SDK.</Text>
+            </CardBody>
+            <CardFooter>
+              <Button>View here</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <Heading size='md'>Auto-Deployed API</Heading>
+            </CardHeader>
+            <CardBody>
+              <Text>Automatically deploy an endpoint to a massive cloud prover.</Text>
+            </CardBody>
+            <CardFooter>
+              <Button>View here</Button>
+            </CardFooter>
+          </Card>
+        </SimpleGrid> */}
+        <Box mb={8} mx={{ base: 10, md: 20, lg: 80 }}>
           <Center>
             <Heading as="h2" size="lg" my={8}>
               Technology
@@ -104,7 +144,7 @@ const MainPage = () => {
           </Center>
           <Flex mb={2}>
             <Center flex="1">
-              <Text mx={{ base: 4, md: 12 }} mb={6}>
+              <Text mx={{ base: 4, md: 8, lg: 12 }} mb={6}>
                 We directly verify the signatures on your emails within a zk proof, including regex parsing within zk. Read our
                 {" "}
                 <Link as="a" href="https://blog.aayushg.com/posts/zkemail/" color="teal.500">
@@ -127,15 +167,25 @@ const MainPage = () => {
             </Center>
           </Flex>
         </Box>
-
-        <Box mb={8} mx={{ base: 4, md: 40 }}>
+        <Box mb={8} mx={{ base: 10, md: 20, lg: 80 }} p={{ base: 10, md: 10, lg: 10 }} bg={grayColor} borderRadius="md" boxShadow="lg">
           <Center>
             <Heading as="h2" size="lg">
               Work with Us
             </Heading>
           </Center>
-          <Text mt={4}>Help us expand our vision, and work with incredible folks who helped create these projects like Sampriti, Sora, Saleel, Nathan, Jern, Tyler, Andy, and others! Projects include email recovery with multisigs, better designs, architecture for anonymous wallets, identity verification methods on various attestation platforms, working to onboard new people to crypto, and in-person experiments. Dm @yush_g or @SoraSue77 on Twitter, or @yush_g or @sorasue on Telegram, or join our (upcoming) Telegram and Discord groups for more discussion! </Text>
-        </Box>
+          <Box mt={4}>
+            Work with incredible folks like Sampriti, Sora, Saleel, Nathan, Jern, Tyler, Andy, and the team! Work on the core project, or:
+          </Box>
+            <Box>- email recovery with multisigs</Box>
+            <Box>- slick frontends</Box>
+            <Box>- architecture for anonymous wallets</Box>
+            <Box>- identity verification methods on various attestation platforms</Box>
+            <Box>- working to onboard new people to crypto</Box>
+            <Box>- in-person experiments</Box>
+            <Box>
+              Dm @yush_g or @SoraSue77 on Twitter, or @yush_g or @sorasue on Telegram, or join our (upcoming) Telegram and Discord groups for more discussion!
+            </Box>        
+          </Box>
       </Center>
     </Box>
   );

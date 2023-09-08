@@ -24,7 +24,7 @@ export async function getAllPosts(): Promise<Post[]> {
       const mdxSource = await serialize(content);
 
       return {
-        slug: filename.replace(".md", ""),
+        slug: filename.replace(".mdx", ""),
         title: data.title,
         date: data.date.toISOString(),
         content: mdxSource,
@@ -35,7 +35,7 @@ export async function getAllPosts(): Promise<Post[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<Post> {
-  const filePath = path.join("posts", `${slug}.md`);
+  const filePath = path.join("posts", `${slug}.mdx`);
   const fileContents = fs.readFileSync(filePath, "utf8");
 
   const { data, content } = matter(fileContents);

@@ -1,13 +1,24 @@
+import {
+  ThemeProvider,
+  theme,
+  ColorModeProvider,
+  CSSReset,
+} from "@chakra-ui/react";
 import Navbar from "@/components/Navbar";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../components/theme";
-function MyApp({ Component, pageProps }) {
-  return (
-    <ChakraProvider theme={theme}>
-      <Navbar />
+import { useRouter } from "next/router";
+
+function App({ Component, pageProps }) {
+  return (                                                                           
+    <>
+      <ThemeProvider theme={theme}>
+        <ColorModeProvider>
+          {!useRouter().asPath.includes("/blog/") ? <CSSReset /> : null}                                    
+        </ColorModeProvider>
+        <Navbar />
       <Component {...pageProps} />
-    </ChakraProvider>
+      </ThemeProvider>
+    </>
   );
 }
 
-export default MyApp;
+export default App;
