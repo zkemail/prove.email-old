@@ -34,7 +34,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
       <Flex align="center">
         <Box flex="1">
           <Image
-            src="https://i.imgur.com/Bd6NzVy.png"
+            src="https://i.imgur.com/ExRee8h.png"
             alt="Email"
             height="1.5em"
             objectFit="cover"
