@@ -151,13 +151,13 @@ const MainPage = () => {
                   blog post
                 </Link>
                 {" "}
-                to understand the technology, or watch our
+                to understand the core email proving technology, or watch our
                 {" "}
                 <Link as="a" href="https://www.youtube.com/watch?v=sPCHiUT3TmA&t=769s" color="teal.500">
                   technical presentation
                 </Link>
                 {" "}
-                to understand how the tech works.
+                to understand how the email wallet technology works.
               </Text>
             </Center>
             <Center flex="1">
@@ -174,16 +174,7 @@ const MainPage = () => {
             </Heading>
           </Center>
           <Box mt={4}>
-            Work with incredible folks like Sampriti, Sora, Saleel, Nathan, Jern, Tyler, Andy, and the team! Work on the core project, or:
-          </Box>
-            <Box>- email recovery with multisigs</Box>
-            <Box>- slick frontends</Box>
-            <Box>- architecture for anonymous wallets</Box>
-            <Box>- identity verification methods on various attestation platforms</Box>
-            <Box>- working to onboard new people to crypto</Box>
-            <Box>- in-person experiments</Box>
-            <Box>
-              Dm @yush_g or @SoraSue77 on Twitter, or @yush_g or @sorasue on Telegram, or join our (upcoming) Telegram and Discord groups for more discussion!
+            Work with incredible folks like Sora, Saleel, Rasul, Tyler, and Andy! Check our [org readme](https://github.com/zkemail) for a list of possible projects on the core protocol, or independently. If you have questions about cnotributing or [our SDK](https://www.npmjs.com/search?q=%40zk-email), [message our developers Telegram group](https://t.me/+SYqeeJ7qI3I4OWQx) for more discussion, or dm [Aayush](https://t.me/yush_g)/[Sora](https://t.me/sorasue)/[Tyler](https://t.me/AtHeartEngineer) to ask private questions!
             </Box>        
           </Box>
       </Center>
