@@ -136,8 +136,9 @@ const MainPage = () => {
           </Center>
             <VStack align="center">
               <Text mx={{ base: 4, md: 12, lg: 24 }} mb={6}>
-                No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure.
-                We directly verify the signatures on your emails within a zk proof, including regex parsing within zk. Read our
+                <b>Features:</b> No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure.
+                <br/>
+                <b>Learn:</b> We directly verify the signatures on your emails within a zk proof, including regex parsing within zk. Read our
                 {" "}
                 <Link as="a" href="https://blog.aayushg.com/posts/zkemail/" color="teal.500">
                   blog post
@@ -151,6 +152,7 @@ const MainPage = () => {
                 {" "}
                 to understand how the email wallet technology works.
               </Text>
+
               <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
                 <VStack align="center">
                   <Heading size="md">Start Building</Heading>
@@ -160,7 +162,7 @@ const MainPage = () => {
                   </Button>
                 </VStack>
               </Box>
-              <Box ml={4} my={8}>
+              <Box mt={4}>
                 <Image src="https://i.imgur.com/46VRTCF.png" alt="Email Stamp" maxH="250px" objectFit="contain" />
               </Box>
             </VStack>
