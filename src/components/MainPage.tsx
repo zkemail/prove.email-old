@@ -151,6 +151,12 @@ const MainPage = () => {
                 </Link>
                 {" "}
                 to understand how the email wallet technology works.
+                <br/>
+                <b>Ask Questions:</b> Join our {" "}
+                <Link as="a" href="https://t.me/+SYqeeJ7qI3I4OWQx" color="teal.500">
+                  our developer Telegram group
+                </Link> 
+                {" "} to ask questions or get help setting up!
               </Text>
 
               <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
@@ -185,14 +191,10 @@ const MainPage = () => {
               {" "} for a list of possible projects related to zk-email. 
               <br/>
               - Message {" "}
-              <Link as="a" href="https://t.me/+SYqeeJ7qI3I4OWQx" color="teal.500">
-                our developer Telegram group
-              </Link> 
-              {" "} with any questions, or dm {" "}
               <Link as="a" href="https://t.me/yush_g" color="teal.500">
                 us
               </Link> 
-              {" "} private questions!
+              {" "} with any questions!
             </Text>
             </Box>        
           </Box>
