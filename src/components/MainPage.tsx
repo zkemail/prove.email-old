@@ -151,7 +151,7 @@ const MainPage = () => {
                 </Link>
                 {" "}
                 to understand how the email wallet technology works.
-                <br/>
+                <br/> 
                 <b>Ask Questions:</b> Join our {" "}
                 <Link as="a" href="https://t.me/+SYqeeJ7qI3I4OWQx" color="teal.500">
                   our developer Telegram group
