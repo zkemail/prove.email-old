@@ -14,39 +14,42 @@ const MainPage = () => {
     <Box>
       <Center flexDirection="column" minHeight="100vh">
         <Box my={16}>
-          <Center>
-            <Heading as="h1" mb={8}>
-              Proof of Email
-            </Heading>
-          </Center>
           <Flex direction="row" mx={{ base: 4, md: 40 }}>
-            <VStack align="start">
-              <Heading as="h2" size="l">
-                The future of identity verification and transactions on Ethereum
+            <VStack align="center">
+              <Box bg={grayColor} p={2} borderRadius="lg" boxShadow="lg">
+                <Heading as="h2" size="l">
+                  The future of verifiable interactions
+                </Heading>
+              </Box>
+            <Center>
+              <Heading as="h1" m={4}>
+                Prove information from your existing emails, on-chain
               </Heading>
-              <Text mt={4}>No MPC assumptions. No trusted hardware. No trusted attestation servers. Only trust smart contracts, email, and DNS infrastructure.</Text>
+            </Center>
+              <Heading size="l" mt={4}>Verify cryptography already built in to your inbox to prove your info anonymously on Ethereum.</Heading>
             </VStack>
           </Flex>
+        </Box>
+
+        <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
+          <Heading size="md">Email Wallet</Heading>
+          <Text mt={2}>Email a relayer in order to transfer money or transact on Ethereum, anonymously.</Text>
+          <Center>
+            <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://sendeth.org", "_blank")}>
+              Try Testnet Demo
+            </Button>
+          </Center>
         </Box>
 
         <Box my={16}>
           <Center id="demos">
             <Heading as="h2" size="lg">
-              Applications
+              Proof of Identity Applications
             </Heading>
           </Center>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} mt={4} mx={{ base: 4, md: 24 }}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} mt={4} mx={{ base: 4, md: 48 }}>
             <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
-              <Heading size="md">Email Wallet</Heading>
-              <Text mt={2}>Email a relayer in order to transfer money or transact on Ethereum, anonymously.</Text>
-              <Center>
-                <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://sendeth.org", "_blank")}>
-                  Try Testnet Demo
-                </Button>
-              </Center>
-            </Box>
-            <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
-              <Heading size="md">ZK Proof of Twitter</Heading>
+              <Heading size="md">Proof of Twitter</Heading>
               <Text mt={2}>Prove you own a Twitter username, via proving any email from Twitter.</Text>
               <Center>
                 <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://zkemail.xyz", "_blank")}>
@@ -55,7 +58,7 @@ const MainPage = () => {
               </Center>
             </Box>
             <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
-              <Heading size="md">ZK Proof of Github</Heading>
+              <Heading size="md">Proof of Github</Heading>
               <Text mt={2}>Prove you committed to a Github repo via proving emails of contribution invitation.</Text>
               <Center>
                 <Button
@@ -78,26 +81,17 @@ const MainPage = () => {
               </Center>
             </Box>
             <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
-              <Heading size="md">ZK KYC</Heading>
-              <Text mt={2}>Prove you are a unique human, via combining known KYCs from Airbnb, Coinbase, etc.</Text>
+              <Heading size="md">Proof of KYC</Heading>
+              <Text mt={2}>Prove you are a real human without revealing who you are, via combining known KYCs from Airbnb, Coinbase, etc.</Text>
               <Center>
                 <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://anonkyc.com/", "_blank")}>
                   Try demo
                 </Button>
               </Center>
             </Box>
-            <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
-              <Heading size="md">Build your own?</Heading>
-              <Text mt={2}>Design via our open source, MIT licensed SDKs.</Text>
-              <Center>
-                <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://www.npmjs.com/search?q=%40zk-email", "_blank")}>
-                  Access SDK
-                </Button>
-              </Center>
-            </Box>
           </SimpleGrid>
         </Box>
-          {/* <Center id="demos">
+        {/* <Center id="demos">
             <Heading as="h2" size="lg">
               Use Our SDKs
             </Heading>
@@ -139,12 +133,12 @@ const MainPage = () => {
         <Box mb={8} mx={{ base: 10, md: 20, lg: 80 }}>
           <Center>
             <Heading as="h2" size="lg" my={8}>
-              Technology
+              Build Your Own
             </Heading>
           </Center>
-          <Flex mb={2}>
-            <Center flex="1">
+            <VStack align="center">
               <Text mx={{ base: 4, md: 8, lg: 12 }} mb={6}>
+                No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure.
                 We directly verify the signatures on your emails within a zk proof, including regex parsing within zk. Read our
                 {" "}
                 <Link as="a" href="https://blog.aayushg.com/posts/zkemail/" color="teal.500">
@@ -159,22 +153,51 @@ const MainPage = () => {
                 {" "}
                 to understand how the email wallet technology works.
               </Text>
-            </Center>
-            <Center flex="1">
               <Box ml={4} my={8}>
-                <Image src="https://i.imgur.com/ldMC1J7.png" alt="Email Town" maxH="250px" objectFit="contain" />
+                <Image src="https://i.imgur.com/46VRTCF.png" alt="Email Stamp" maxH="250px" objectFit="contain" />
               </Box>
-            </Center>
-          </Flex>
+              <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
+                <VStack align="center">
+                  <Heading size="md">Start Building</Heading>
+                  <Text mt={2}>Design via our open source, MIT licensed SDKs.</Text>
+                  <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://www.npmjs.com/search?q=%40zk-email", "_blank")}>
+                    Access SDK
+                  </Button>
+                </VStack>
+              </Box>
+            </VStack>
         </Box>
         <Box mb={8} mx={{ base: 10, md: 20, lg: 80 }} p={{ base: 10, md: 10, lg: 10 }} bg={grayColor} borderRadius="md" boxShadow="lg">
           <Center>
             <Heading as="h2" size="lg">
-              Work with Us
+              Contribute to Core
             </Heading>
           </Center>
           <Box mt={4}>
-            Work with incredible folks like Sora, Saleel, Rasul, Tyler, and Andy! Check our [org readme](https://github.com/zkemail) for a list of possible projects on the core protocol, or independently. If you have questions about cnotributing or [our SDK](https://www.npmjs.com/search?q=%40zk-email), [message our developers Telegram group](https://t.me/+SYqeeJ7qI3I4OWQx) for more discussion, or dm [Aayush](https://t.me/yush_g)/[Sora](https://t.me/sorasue)/[Tyler](https://t.me/AtHeartEngineer) to ask private questions!
+            <Text>
+              Work with incredible folks like Aayush, Sora, Saleel, Rasul, Tyler, and Andy! Check our {" "}
+              <Link as="a" href="https://github.com/zkemail" color="teal.500">
+                org readme
+              </Link> 
+              {" "} for a list of possible projects related to zk-email. If you have questions about contributing or {" "}
+              <Link as="a" href="https://www.npmjs.com/search?q=%40zk-email" color="teal.500">
+                our SDK
+              </Link>, message {" "}
+              <Link as="a" href="https://t.me/+SYqeeJ7qI3I4OWQx" color="teal.500">
+                our developer Telegram group
+              </Link> 
+              {" "} for more discussion, or dm {" "}
+              <Link as="a" href="https://t.me/yush_g" color="teal.500">
+                Aayush
+              </Link>/
+              <Link as="a" href="https://t.me/sorasue" color="teal.500">
+                Sora
+              </Link>/
+              <Link as="a" href="https://t.me/AtHeartEngineer" color="teal.500">
+                Tyler
+              </Link> 
+              {" "} to ask private questions!
+            </Text>
             </Box>        
           </Box>
       </Center>

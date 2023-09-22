@@ -47,7 +47,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
           mx={2}
           fontWeight="bold"
         >
-          ZK EMAIL
+          PROOF OF EMAIL
         </Link>
       </Flex>
       <Box>
