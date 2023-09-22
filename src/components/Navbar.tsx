@@ -55,7 +55,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
           as={NextLink}
           href="/blog"
           color={colorMode === "dark" ? "white" : "black"}
-          mx={4}
+          mx={{base:2, md: 4}}
         >
           Blog
         </Link>
@@ -63,7 +63,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
           as={NextLink}
           href="https://github.com/zkemail"
           color={colorMode === "dark" ? "white" : "black"}
-          mx={4}
+          mx={{base:2, md: 4}}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -73,7 +73,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
           as={NextLink}
           href="#demos"
           color={colorMode === "dark" ? "white" : "black"}
-          mx={4}
+          mx={{base:2, md: 4}}
         >
           Demo
         </Link>
@@ -81,12 +81,12 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
           as={NextLink}
           href="https://t.me/yush_g"
           color={colorMode === "dark" ? "white" : "black"}
-          mx={4}
+          mx={{base:2, md: 4}}
         >
           Contact
         </Link>
       </Box>
-      <Button onClick={toggleColorMode} mx={{ base: 2, md: 4 }} p={0}>
+      <Button onClick={toggleColorMode} mx={{ base: 2, sm: 4, md: 16}} p={0}>
         {colorMode === "dark" ? (
           <FaMoon size="1.2em" />
         ) : (

@@ -14,26 +14,24 @@ const MainPage = () => {
     <Box>
       <Center flexDirection="column" minHeight="100vh">
         <Box my={16}>
-          <Flex direction="row" mx={{ base: 4, md: 40 }}>
+          <Center>
             <VStack align="center">
               <Box bg={grayColor} p={2} borderRadius="lg" boxShadow="lg">
                 <Heading as="h2" size="l">
                   The future of verifiable interactions
                 </Heading>
               </Box>
-            <Center>
-              <Heading as="h1" m={4}>
+              <Heading as="h1" m={4} textAlign="center">
                 Prove information from your existing emails, on-chain
               </Heading>
-            </Center>
-              <Heading size="l" mt={4}>Verify cryptography already built in to your inbox to prove your info anonymously on Ethereum.</Heading>
+              <Heading size="l" mx={{base: 4, sm: 12}} mt={4} textAlign="center">Verify cryptography already built in to your inbox, anonymously on Ethereum.</Heading>
             </VStack>
-          </Flex>
+          </Center>
         </Box>
 
-        <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
+        <Box bg={grayColor} p={5} mx={4} borderRadius="md" boxShadow="lg">
           <Heading size="md">Email Wallet</Heading>
-          <Text mt={2}>Email a relayer in order to transfer money or transact on Ethereum, anonymously.</Text>
+          <Text mt={2}>Send money to any existing email address, just by sending an email.</Text>
           <Center>
             <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://sendeth.org", "_blank")}>
               Try Testnet Demo
@@ -137,7 +135,7 @@ const MainPage = () => {
             </Heading>
           </Center>
             <VStack align="center">
-              <Text mx={{ base: 4, md: 8, lg: 12 }} mb={6}>
+              <Text mx={{ base: 4, md: 12, lg: 24 }} mb={6}>
                 No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure.
                 We directly verify the signatures on your emails within a zk proof, including regex parsing within zk. Read our
                 {" "}
@@ -153,9 +151,6 @@ const MainPage = () => {
                 {" "}
                 to understand how the email wallet technology works.
               </Text>
-              <Box ml={4} my={8}>
-                <Image src="https://i.imgur.com/46VRTCF.png" alt="Email Stamp" maxH="250px" objectFit="contain" />
-              </Box>
               <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
                 <VStack align="center">
                   <Heading size="md">Start Building</Heading>
@@ -164,6 +159,9 @@ const MainPage = () => {
                     Access SDK
                   </Button>
                 </VStack>
+              </Box>
+              <Box ml={4} my={8}>
+                <Image src="https://i.imgur.com/46VRTCF.png" alt="Email Stamp" maxH="250px" objectFit="contain" />
               </Box>
             </VStack>
         </Box>
@@ -175,28 +173,24 @@ const MainPage = () => {
           </Center>
           <Box mt={4}>
             <Text>
-              Work with incredible folks like Aayush, Sora, Saleel, Rasul, Tyler, and Andy! Check our {" "}
+              <br/>
+              - Work with incredible folks like Aayush, Sora, Saleel, Rasul, Tyler, and Andy! 
+              <br/>
+              - Check our {" "}
               <Link as="a" href="https://github.com/zkemail" color="teal.500">
                 org readme
               </Link> 
-              {" "} for a list of possible projects related to zk-email. If you have questions about contributing or {" "}
-              <Link as="a" href="https://www.npmjs.com/search?q=%40zk-email" color="teal.500">
-                our SDK
-              </Link>, message {" "}
+              {" "} for a list of possible projects related to zk-email. 
+              <br/>
+              - Message {" "}
               <Link as="a" href="https://t.me/+SYqeeJ7qI3I4OWQx" color="teal.500">
                 our developer Telegram group
               </Link> 
-              {" "} for more discussion, or dm {" "}
+              {" "} with any questions, or dm {" "}
               <Link as="a" href="https://t.me/yush_g" color="teal.500">
-                Aayush
-              </Link>/
-              <Link as="a" href="https://t.me/sorasue" color="teal.500">
-                Sora
-              </Link>/
-              <Link as="a" href="https://t.me/AtHeartEngineer" color="teal.500">
-                Tyler
+                us
               </Link> 
-              {" "} to ask private questions!
+              {" "} private questions!
             </Text>
             </Box>        
           </Box>
