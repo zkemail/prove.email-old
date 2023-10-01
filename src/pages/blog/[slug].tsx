@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 import { Post as PostType, getAllPosts, getPostBySlug } from "../../lib/posts";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
-import { MDXProvider } from '@mdx-js/react';
-import { ThemeUIProvider } from 'theme-ui'
-import preset from '@theme-ui/preset-tailwind'
+import { MDXProvider } from "@mdx-js/react";
+import { ThemeUIProvider } from "theme-ui";
+import preset from "@theme-ui/preset-tailwind";
 
 interface PostProps {
   post: PostType;
@@ -17,18 +17,16 @@ type Params = {
   };
 };
 
-
 export default function Post({ post }: PostProps) {
   return (
     <ThemeUIProvider theme={preset}>
-      <MDXProvider>
-        <div style={{padding: '80px'}}>
-          <h1>{post.title}</h1>
+      <div style={{ padding: "80px" }}>
+        <h1>{post.title}</h1>
+        <MDXProvider>
           <MDXRemote {...post.content} />
-        </div>
-      </MDXProvider>
+        </MDXProvider>
+      </div>
     </ThemeUIProvider>
-
   );
 }
 
