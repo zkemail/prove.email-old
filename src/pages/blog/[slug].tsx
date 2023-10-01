@@ -22,7 +22,7 @@ export default function Post({ post }: PostProps) {
     <ThemeUIProvider theme={preset}>
       <div style={{ padding: "80px" }}>
         <h1>{post.title}</h1>
-        <MDXProvider>
+        <MDXProvider components={{}}>
           <MDXRemote {...post.content} />
         </MDXProvider>
       </div>

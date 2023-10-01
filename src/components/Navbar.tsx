@@ -14,14 +14,15 @@ import {
 } from "@chakra-ui/react";
 
 import NextLink from "next/link";
+import { useEffect } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 interface NavbarProps {
   onNavClick: (navItem: string) => void;
 }
-
 const Navbar = ({ onNavClick }: NavbarProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
+  // console.log("Color mode is: ", colorMode);
 
   return (
     <Flex
@@ -30,7 +31,7 @@ const Navbar = ({ onNavClick }: NavbarProps) => {
       py={6}
       justifyContent="space-between"
       alignItems="center"
-    >
+    > 
       <Flex align="center">
         <Box flex="1">
           <Image
