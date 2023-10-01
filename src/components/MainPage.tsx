@@ -29,15 +29,31 @@ const MainPage = () => {
           </Center>
         </Box>
 
+        <Center id="demos">
+          <Heading as="h2" size="lg">
+            On Chain Applications
+          </Heading>
+        </Center>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} mt={4} mx={{ base: 4, md: 48 }}>
         <Box bg={grayColor} p={5} mx={4} borderRadius="md" boxShadow="lg">
-          <Heading size="md">Email Wallet</Heading>
-          <Text mt={2}>Send money to any existing email address, just by sending an email.</Text>
-          <Center>
-            <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://sendeth.org", "_blank")}>
-              Try Testnet Demo
-            </Button>
-          </Center>
-        </Box>
+            <Heading size="md">Email Wallet</Heading>
+            <Text mt={2}>Send money to any existing email address, just by sending an email.</Text>
+            <Center>
+              <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://sendeth.org", "_blank")}>
+                Try Testnet Demo
+              </Button>
+            </Center>
+          </Box>
+          <Box bg={grayColor} p={5} mx={4} borderRadius="md" boxShadow="lg">
+            <Heading size="md">ZK P2P</Heading>
+            <Text mt={2}>Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo and other payment services.</Text>
+            <Center>
+              <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://zkp2p.xyz/", "_blank")}>
+                Try Testnet Demo
+              </Button>
+            </Center>
+          </Box>
+        </SimpleGrid>
 
         <Box my={16}>
           <Center id="demos">
@@ -151,7 +167,7 @@ const MainPage = () => {
                 </Link>
                 {" "}
                 to understand how the email wallet technology works.
-                <br/> 
+                <br/>
                 <b>Ask Questions:</b> Join our {" "}
                 <Link as="a" href="https://t.me/+SYqeeJ7qI3I4OWQx" color="teal.500">
                   our developer Telegram group
