@@ -8,14 +8,14 @@ import Navbar from "@/components/Navbar";
 import { useRouter } from "next/router";
 
 function App({ Component, pageProps }) {
-  return (                                                                           
+  return (
     <>
       <ThemeProvider theme={theme}>
         <ColorModeProvider>
-          {!useRouter().asPath.includes("/blog/") ? <CSSReset /> : null}                                    
+          {!useRouter().asPath.includes("/blog/") ? <CSSReset /> : null}
         </ColorModeProvider>
         <Navbar />
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   );

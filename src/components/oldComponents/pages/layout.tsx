@@ -1,6 +1,6 @@
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import "../app/globals.css";
-import { metadata } from "../lib/metadata";
+import { metadata } from "../../../lib/metadata";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });

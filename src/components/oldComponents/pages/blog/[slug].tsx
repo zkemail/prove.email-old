@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ReactNode } from "react";
-import { Post as PostType, getAllPosts, getPostBySlug } from "../../lib/posts";
+import { Post as PostType, getAllPosts, getPostBySlug } from "../../../../lib/posts";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { MDXProvider } from "@mdx-js/react";

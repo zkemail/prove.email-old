@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GetStaticProps } from "next";
-import { Post, getAllPosts } from "../../lib/posts";
+import { Post, getAllPosts } from "../../../../lib/posts";
 
 interface Props {
   posts: Post[];

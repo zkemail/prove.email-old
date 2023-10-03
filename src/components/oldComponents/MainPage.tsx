@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Link, Text, Button, useColorMode, Stack, Image, Center, SimpleGrid, VStack, Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/oldComponents/Navbar";
 import { ChakraProvider } from "@chakra-ui/react";
 // import theme from "./theme";
 // inside your MainPage component
