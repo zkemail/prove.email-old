@@ -3,8 +3,8 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <section className="flex flex-col md:flex-row items-end max-md:gap-y-0 mt-40">
-      <div className="flex basis-[65%] flex-col gap-y-10">
-        <div className="w-fit bg-gradient-to-b from-blue-400 via-violet-300 to-orange-400 rounded-full p-[1.5px]">
+      <div className="flex basis-[65%] flex-col gap-y-12">
+        <div className="w-fit bg-gradient-to-b from-blue-400 via-violet-300 to-orange-400 rounded-full p-[1px]">
           <div className="w-fit rounded-full py-1.5 px-3 bg-tertiary flex items-center gap-2">
             <Image
               src={"/ethereum-gold.svg"}

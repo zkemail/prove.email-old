@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "serve out",
     "lint": "next lint"
   },
   "engines": {
@@ -48,5 +48,8 @@
     "tailwindcss-animate": "^1.0.7",
     "theme-ui": "^0.16.1",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
   }
 }
