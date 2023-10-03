@@ -31,7 +31,7 @@ const ApplicationCard = ({
         <Image src={"/appcard-bg.svg"} alt="card background image" fill />
         {children}
       </CardHeader>
-      <div className="flex flex-col h-[170px]">
+      <div className="flex flex-col h-[180px]">
         <CardContent className="gap-y-2 flex flex-col p-2 pt-4">
           <h1 className="font-semibold">{title}</h1>
           <p className="text-sm text-muted-foreground">{description}</p>
