@@ -26,8 +26,8 @@ export default function RootLayout({
           <MaxWidthWrapper>
             <Headers />
             <PaperCIrcles />
-            {children}
           </MaxWidthWrapper>
+          {children}
         </ThemeProvider>
       </body>
     </html>
