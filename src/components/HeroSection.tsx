@@ -1,8 +1,14 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 
 const HeroSection = () => {
+  const { resolvedTheme } = useTheme();
+
   return (
-    <section className="flex flex-col md:flex-row items-end max-md:gap-y-0 mt-40">
+    <section className="flex flex-col md:flex-row items-end max-md:gap-y-0 mt-40 ">
       <div className="flex basis-[65%] flex-col gap-y-12">
         <div className="w-fit bg-gradient-to-b from-blue-400 via-violet-300 to-orange-400 rounded-full p-[1px]">
           <div className="w-fit rounded-full py-1.5 px-3 bg-tertiary flex items-center gap-2">
@@ -34,7 +40,10 @@ const HeroSection = () => {
           alt="hero-image"
           height={650}
           width={650}
-          className="object-contain absolute right-[10%] -bottom-5"
+          className={cn(
+            "object-contain absolute right-[10%] -bottom-5",
+            resolvedTheme === "dark" && "invert"
+          )}
         />
         <Image
           src={"/dry-brush.svg"}
@@ -42,6 +51,26 @@ const HeroSection = () => {
           height={80}
           alt="dry-brush"
           className="absolute right-40 bottom-[35%] -z-20"
+        />
+      </div>
+
+      <div className="md:hidden absolute w-full h-[550px]">
+        <Image
+          src={"/girl-check-phone.svg"}
+          alt="hero-image"
+          height={350}
+          width={350}
+          className={cn(
+            "absolute right-0 -bottom-[30%]",
+            resolvedTheme === "dark" && "invert"
+          )}
+        />
+        <Image
+          src={"/dry-brush.svg"}
+          width={120}
+          height={80}
+          alt="dry-brush"
+          className="absolute object-contain -right-2 -bottom-[10%] -z-20"
         />
       </div>
     </section>
