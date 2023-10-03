@@ -15,15 +15,15 @@ const routes = [
   },
   {
     name: "Docs",
-    pathname: "/docs",
+    pathname: "https://github.com/zkemail",
   },
   {
     name: "Demo",
-    pathname: "/demo",
+    pathname: "#demos",
   },
   {
     name: "Contact",
-    pathname: "/contact",
+    pathname: "https://t.me/yush_g",
   },
 ];
 
@@ -38,6 +38,7 @@ const Headers = () => {
           {routes.map((route) => (
             <Link
               href={route.pathname}
+              target={route.name === "Docs" ? "_blank" : "_self"}
               className={cn(
                 "hover:bg-0 hover:text-slate-500 transition-all",
                 pathname === route.pathname && "text-slate-500"
