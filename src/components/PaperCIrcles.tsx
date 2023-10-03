@@ -11,26 +11,11 @@ const PaperCIrcles = () => {
         height={300}
         className="absolute left-[30%] md:left-[40%]"
       />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
-      <PaperCircle />
+      {Array(20)
+        .fill(0)
+        .map((_i, index) => (
+          <PaperCircle key={index} />
+        ))}
     </div>
   );
 };

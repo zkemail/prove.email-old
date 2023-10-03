@@ -1,5 +1,5 @@
+import PaperLines from "@/components/PaperLines";
 import Image from "next/image";
-import React from "react";
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -12,6 +12,7 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
           className="object-cover"
         />
       </div> */}
+      <PaperLines />
       {children}
     </div>
   );
