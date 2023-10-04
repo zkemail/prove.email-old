@@ -1,7 +1,5 @@
-import PaperCIrcles from "@/components/PaperCIrcles";
 import "./globals.css";
 import Headers from "@/components/Headers";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ThemeProvider } from "@/components/ThemeProviders";
 
 export const metadata = {
@@ -23,10 +21,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MaxWidthWrapper>
-            <Headers />
-            <PaperCIrcles />
-          </MaxWidthWrapper>
+          <Headers />
           {children}
         </ThemeProvider>
       </body>

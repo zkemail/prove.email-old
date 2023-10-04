@@ -35,7 +35,7 @@ const MobileMenu = ({ routes }: MobileMenuProps) => {
           <Logo />
         </SheetHeader>
         <nav className="mt-20 flex flex-col gap-1">
-          <SearchInput className="flex md:hidden mb-8 w-1/2 sm:w-4/5" />
+          <SearchInput className="flex md:hidden mb-8 w-full sm:w-4/5" />
           {routes.map((route) => (
             <div
               key={route.name}

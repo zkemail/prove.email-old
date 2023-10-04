@@ -28,7 +28,7 @@ const SearchInput = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <Search className="absolute" size={18} />
+      <Search className="absolute text-muted-foreground" size={18} />
       <Input
         ref={inputRef}
         type="text"

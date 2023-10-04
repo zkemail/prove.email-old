@@ -8,132 +8,79 @@ import { Input } from "./ui/input";
 import { useState } from "react";
 import { Github, LucideGithub } from "lucide-react";
 import { FaAirbnb, FaGithub } from "react-icons/fa";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import TabContent from "./TabContent";
+
+const datas = [
+  { name: "Email Wallet" },
+  { name: "ZK Proof of Twitter" },
+  { name: "ZK Proof of Github" },
+  { name: "Proof of Organization" },
+  { name: "ZK KYC" },
+  { name: "Build your own?" },
+];
 
 const ApplicationSection = () => {
   const [twitterInput, setTwitterInput] = useState("");
 
   return (
-    <section className="md:mt-48 mt-72">
-      <MaxWidthWrapper>
-        <h1 className="text-3xl font-semibold">Application</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10 gap-4">
-          <ApplicationCard
+    <section className="mt-20 px-2.5 py-16 md:p-20">
+      <Tabs
+        defaultValue="0"
+        className="justify-center flex flex-col items-center"
+      >
+        <TabsList className="flex flex-wrap gap-3 bg-transparent mb-24 md:mb-10">
+          {datas.map((data, index) => (
+            <TabsTrigger
+              className="bg-muted border shadow-md data-[state=active]:shadow hover:scale-105"
+              key={index}
+              value={index.toString()}
+            >
+              {data.name}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        <TabsContent
+          value={"0"}
+          className="flex flex-col lg:flex-row gap-10 justify-center items-center"
+        >
+          <TabContent
             title={"Email Wallet"}
             description={
               "Email a relayer in order to transfer money or transact on Ethereum, anonymously."
             }
-            button={"Try Testnet Demo"}
             href={"https://sendeth.org/"}
+            button={"Try Testnet Demo"}
           >
-            <div className="flex items-center gap-x-2 justify-center h-full">
+            <div className="flex gap-64 relative">
               <Image
                 src={"/mailOpen.svg"}
-                alt="mailOpen"
-                height={17}
-                width={17}
-              />
-              <Separator className="w-1/2 h-[2px]" />
-              <Image
-                src={"/mailBox.svg"}
-                width={17}
-                height={17}
-                alt="mailBox"
-              />
-            </div>
-          </ApplicationCard>
-          <ApplicationCard
-            title={"ZK Proof of Twitter"}
-            description={
-              "Prove you own a Twitter username, via proving any email from Twitter."
-            }
-            button={"Mint Twitter Proof"}
-            href={"https://zkemail.xyz/"}
-          >
-            <div className="flex flex-col items-center gap-4 justify-center h-full">
-              <Image
-                src={"/twitter.svg"}
-                height={25}
-                width={25}
-                alt="twitter"
-              />
-              <Input
-                type="text"
-                name="username"
-                value={twitterInput}
-                onChange={(e) => setTwitterInput(e.target.value)}
-                placeholder="Enter twitter username"
-                className="z-10 focus-visible:ring-0 focus-visible:border-0 border-0 ring-0 h-8 shadow"
-              />
-            </div>
-          </ApplicationCard>
-          <ApplicationCard
-            title={"ZK Proof of Github"}
-            description={
-              "Prove you committed to a Github repo via proving emails of contribution invitation."
-            }
-            button={"Watch Demo"}
-            href={
-              "https://www.loom.com/share/4a280711e0944cecbe680149cf4de02b?sid=d1247bf1-d78c-4295-81be-832f9ceaa8b8"
-            }
-          >
-            <div className="h-full flex justify-center items-center">
-              <FaGithub size="40" color="#7e6cd6" />
-            </div>
-          </ApplicationCard>
-          <ApplicationCard
-            title={"Proof of Organization"}
-            description={
-              "Prove you own an email address corresponding to some domain via ZK JWTs."
-            }
-            button={"Try on Nozee"}
-            href={"https://nozee.xyz/"}
-          >
-            <div className="h-full flex justify-center items-center">
-              <Image
-                src={"/notification_multiple.svg"}
-                alt="icon"
+                alt="mail_open"
                 width={40}
                 height={40}
+                className="mt-48 ml-4"
               />
-            </div>
-          </ApplicationCard>
-          <ApplicationCard
-            title={"ZK KYC"}
-            description={
-              "Prove you are a unique human, via combining known KYCs from Airbnb, Coinbase, etc."
-            }
-            button={"Try Demo"}
-            href={"https://anonkyc.com/"}
-          >
-            <div className="flex items-center gap-x-4 h-full justify-center">
-              <div className="p-1 rounded-full bg-red-400 text-white">
-                <FaAirbnb size={20} />
+
+              <div className="w-[180px] h-[180px] rounded-se-full -z-10 absolute -rotate-[60deg] pt-[0.5px] right-[100px] top-12 bg-gradient-to-br from-blue-400 to-orange-400">
+                <div className="bg-white dark:bg-slate-950 w-[180px] h-[180px] rounded-se-full absolute right-[0.5px]" />
               </div>
               <Image
-                src={"/cLogo.svg"}
-                alt="C Logo image"
-                width={30}
-                height={30}
+                src={"/mailBox.svg"}
+                alt="mail_box"
+                width={40}
+                height={40}
+                className="mr-2"
               />
             </div>
-          </ApplicationCard>
-          <ApplicationCard
-            title={"Build your own?"}
-            description={"Design via our open source, MIT licensed SDKs."}
-            button={"Access SDK"}
-            href={"https://www.npmjs.com/search?q=%40zk-email"}
-          >
-            <div className="h-full flex justify-center items-center">
-              <Image
-                src={"/mit_license.svg"}
-                alt="mit_license"
-                width={60}
-                height={60}
-              />
-            </div>
-          </ApplicationCard>
-        </div>
-      </MaxWidthWrapper>
+          </TabContent>
+        </TabsContent>
+        <TabsContent value={"1"}>1</TabsContent>
+        <TabsContent value={"2"}>2</TabsContent>
+        <TabsContent value={"3"}>3</TabsContent>
+        <TabsContent value={"4"}>4</TabsContent>
+        <TabsContent value={"5"}>5</TabsContent>
+      </Tabs>
     </section>
   );
 };
