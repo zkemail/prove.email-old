@@ -8,6 +8,7 @@ interface TabContentProps {
   description: string;
   href: string;
   button: string;
+  className?: string;
 }
 
 const TabContent = ({
@@ -16,9 +17,10 @@ const TabContent = ({
   description,
   href,
   title,
+  className,
 }: TabContentProps) => {
   return (
-    <>
+    <div className={cn(className)}>
       {children}
 
       <div className="flex flex-col gap-y-6 lg:w-1/2">
@@ -37,7 +39,7 @@ const TabContent = ({
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
