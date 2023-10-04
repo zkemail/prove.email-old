@@ -1,4 +1,4 @@
-import ApplicationSection from "@/components/ApplicationSection";
+import ApplicationSection from "@/components/ApplicationSection/ApplicationSection";
 import HeroSection from "@/components/HeroSection";
 
 const HomePage = () => {
