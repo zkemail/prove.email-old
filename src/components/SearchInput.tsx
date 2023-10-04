@@ -36,7 +36,7 @@ const SearchInput = ({ className }: { className?: string }) => {
         value={searchInput}
         name="search"
         onChange={(e) => setSearchInput(e.target.value)}
-        className="ml-6 h-8 rounded bg-transparent border-transparent p-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent focus:ring-0"
+        className="ml-6 h-8 text-black rounded bg-transparent border-transparent p-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent focus:ring-0"
       />
       <kbd className="text-sm text-muted-foreground flex items-center gap-1">
         <span className="text-xl">⌘</span>+<span>K</span>
