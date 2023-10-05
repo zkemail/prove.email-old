@@ -1,11 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { Input } from "../ui/input";
 import { useState } from "react";
-import { FaAirbnb, FaGithub } from "react-icons/fa";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import TabContent from "../TabContent";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { container, childrenVariant } from "@/lib/motion";
 import TabContent1 from "./TabContent1";
@@ -13,6 +9,7 @@ import TabContent2 from "./TabContent2";
 import TabContent3 from "./TabContent3";
 import TabContent4 from "./TabContent4";
 import TabContent5 from "./TabContent5";
+import { Separator } from "../ui/separator";
 
 const datas = [
   { name: "Email Wallet" },
@@ -26,7 +23,7 @@ const ApplicationSection = () => {
   const [twitterInput, setTwitterInput] = useState("");
   // bg-gradient-to-br dark:from-violet-950 dark:via-primary-foreground dark:to-emerald-950  from-violet-50 via-white to-emerald-50
   return (
-    <section className="mt-32 px-2.5 py-20 md:p-20">
+    <section className=" px-2.5 py-14 md:py-20 mt-40 drop-shadow-lg md:mx-20 mx-2  border rounded-xl bg-white dark:bg-slate-950">
       <Tabs
         defaultValue="0"
         className="justify-center flex flex-col items-center"
