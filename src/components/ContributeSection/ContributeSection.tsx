@@ -1,0 +1,71 @@
+import Image from "next/image";
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "../ui/button";
+
+const contributors = [
+  { image: "/sora.svg", name: "Sora" },
+  { image: "/saleel.svg", name: "Saleel" },
+  { image: "/rasul.svg", name: "Rasul" },
+  { image: "/tyler.svg", name: "Tyler" },
+  { image: "/andy.svg", name: "Andy" },
+];
+
+const ContributeSection = () => {
+  return (
+    <MaxWidthWrapper className="flex flex-col gap-y-10 items-center text-center pt-16 pb-20">
+      <div className="flex flex-col gap-y-6">
+        <h1 className="lg:text-5xl text-4xl font-medium">Contribute to core</h1>
+        <p className="text-muted-foreground">Work with incredible folks like</p>
+      </div>
+      <div className="flex flex-wrap md:gap-24 gap-14 justify-center mt-8 transition-all">
+        {contributors.map((item) => (
+          <div
+            key={item.name}
+            className="flex flex-col gap-y-3 items-center hover:scale-110 transition"
+          >
+            <div className="relative sm:h-[70px] sm:w-[70px] h-[55px] w-[55px]">
+              <Image src={item.image} alt={item.name.toLowerCase()} fill />
+            </div>
+
+            <span>{item.name}</span>
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center w-full space-y-8 mt-3">
+        <p className="w-full md:w-1/2 max-md:text-sm">
+          Check our org readme for a list of possible projects related to
+          zk-email or message us if you have any question
+        </p>
+
+        <div className="flex space-x-4 items-center">
+          <div className="bg-gradient-to-br from-blue-300 via-violet-300 to-orange-300 p-[1px] rounded w-fit">
+            <Link
+              href={"https://github.com/zkemail"}
+              target="_blank"
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "bg-tertiary dark:bg-tertiary-foreground text-tertiary-foreground font-normal dark:text-primary rounded hover:dark:bg-tertiary-foreground/80 w-[130px]"
+              )}
+            >
+              Org Read me
+            </Link>
+          </div>
+          <Link
+            href={"https://t.me/yush_g"}
+            target="_blank"
+            className={cn(
+              buttonVariants({ variant: "outline" }),
+              "shadow w-[130px] font-normal"
+            )}
+          >
+            Message
+          </Link>
+        </div>
+      </div>
+    </MaxWidthWrapper>
+  );
+};
+
+export default ContributeSection;

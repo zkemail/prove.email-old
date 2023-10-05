@@ -27,8 +27,8 @@ const TabContent1 = () => {
             className="absolute lg:left-16 left-2 bottom-2"
           />
 
-          <div className="w-[180px] h-[180px] rounded-se-full -z-10 lg:ml-16 lg:mt-2 absolute -rotate-[60deg] pt-[0.5px] left-[60px] bottom-0 bg-gradient-to-br from-blue-400 to-orange-400">
-            <div className="bg-white dark:bg-slate-950 w-[180px] h-[180px] rounded-se-full absolute right-[0.5px]" />
+          <div className="w-[180px] h-[180px] rounded-se-full lg:ml-16 lg:mt-2 absolute -rotate-[60deg] pt-[0.5px] left-[60px] bottom-0 bg-gradient-to-br from-blue-400 to-orange-400">
+            <div className="bg-white dark:bg-slate-950 bg-transparent w-[180px] h-[180px] rounded-se-full absolute right-[0.5px]" />
           </div>
 
           <Image
