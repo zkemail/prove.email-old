@@ -1,26 +1,60 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/lib/motion";
 
 const BuildYourOwn = () => {
   return (
-    <MaxWidthWrapper className="flex flex-col gap-y-16 items-center text-center py-24">
+    <MaxWidthWrapper className="flex flex-col gap-y-16 items-center text-center py-28">
       <div className="flex flex-col gap-y-8 items-center">
-        <h1 className="lg:text-5xl text-4xl font-medium">Build Your Own</h1>
-        <p className="w-4/5 text-muted-foreground font-normal">
+        <motion.h1
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 0.5 }}
+          className="lg:text-5xl text-4xl font-medium"
+        >
+          Build Your Own
+        </motion.h1>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="w-4/5 text-muted-foreground font-normal"
+        >
           No trusted hardware. No trusted attestation servers. Only trust zero
           knowledge proofs, smart contracts, email, and DNS infrastructure.
-        </p>
+        </motion.p>
       </div>
 
-      <div className="relative w-1/2 h-44">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={fadeIn("up", "spring", 0.2, 1.2)}
+        className="relative w-1/2 h-44"
+      >
         <Image src={"/mit_license.svg"} alt="image" fill />
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col gap-y-8">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={fadeIn("right", "spring", 0.3, 1.2)}
+        className="flex flex-col gap-y-8"
+      >
         <p className="w-full md:w-4/5 font-normal text-muted-foreground mx-auto">
           We directly verify the signatures on your emails within a zk proof,
           including regex parsing within zk. Read our{" "}
@@ -57,7 +91,7 @@ const BuildYourOwn = () => {
             Access SDK
           </Link>
         </div>
-      </div>
+      </motion.div>
     </MaxWidthWrapper>
   );
 };

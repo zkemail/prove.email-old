@@ -14,7 +14,7 @@ const TabContent4 = () => {
           "https://www.loom.com/share/4a280711e0944cecbe680149cf4de02b?sid=d1247bf1-d78c-4295-81be-832f9ceaa8b8"
         }
         button={"Try on Nozee"}
-        className="flex flex-col justify-center md:flex-row mx-auto items-center gap-10 max-lg:mt-10"
+        className="flex flex-col justify-center max-md:text-center md:flex-row mx-auto items-center gap-10 max-lg:mt-10"
       >
         <div className="relative w-1/2 h-[60px]">
           <Image src={"/notification_multiple.svg"} alt="image" fill />

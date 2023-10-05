@@ -19,7 +19,7 @@ const TabContent2 = ({ setTwitterInput, twitterInput }: TabContent2Props) => {
         }
         href={"https://zkemail.xyz/"}
         button={"Mint Twitter Proof"}
-        className="flex flex-col md:flex-row items-center max-lg:mt-10 gap-x-20 gap-y-10"
+        className="flex flex-col md:flex-row items-center max-lg:mt-10 max-md:text-center gap-x-20 gap-y-10"
       >
         <div className="flex flex-col gap-y-6 md:w-1/2 items-center">
           <Image src={"/twitter.svg"} alt={"twitter"} width={40} height={40} />

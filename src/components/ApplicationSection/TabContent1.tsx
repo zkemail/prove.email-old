@@ -16,7 +16,7 @@ const TabContent1 = () => {
         }
         href={"https://sendeth.org/"}
         button={"Try Testnet Demo"}
-        className="flex flex-col lg:flex-row gap-x-40 gap-y-10 relative items-center"
+        className="flex flex-col lg:flex-row gap-x-40 gap-y-10 relative items-center max-md:text-center"
       >
         <div className="relative w-[370px] lg:mr-10 lg:w-1/3 mt-[185px]">
           <Image

@@ -14,7 +14,7 @@ const TabContent3 = () => {
           "https://www.loom.com/share/4a280711e0944cecbe680149cf4de02b?sid=d1247bf1-d78c-4295-81be-832f9ceaa8b8"
         }
         button={"Watch Demo"}
-        className="flex flex-col justify-center md:flex-row mx-auto items-center max-lg:mt-10 gap-10"
+        className="flex flex-col justify-center md:flex-row max-md:text-center mx-auto items-center max-lg:mt-10 gap-10"
       >
         <FaGithub size={60} color={"#8C6FE2"} className='w-1/2' />
       </TabContent>

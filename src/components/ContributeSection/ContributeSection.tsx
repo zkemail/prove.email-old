@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
+import { motion } from "framer-motion";
+import { childrenVariant, container } from "@/lib/motion";
 
 const contributors = [
   { image: "/sora.svg", name: "Sora" },
@@ -14,14 +18,42 @@ const contributors = [
 
 const ContributeSection = () => {
   return (
-    <MaxWidthWrapper className="flex flex-col gap-y-10 items-center text-center pt-16 pb-20">
+    <MaxWidthWrapper className="flex flex-col gap-y-10 items-center text-center pt-8 pb-28">
       <div className="flex flex-col gap-y-6">
-        <h1 className="lg:text-5xl text-4xl font-medium">Contribute to core</h1>
-        <p className="text-muted-foreground">Work with incredible folks like</p>
+        <motion.h1
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 0.5 }}
+          className="lg:text-5xl text-4xl font-medium"
+        >
+          Contribute to core
+        </motion.h1>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-muted-foreground"
+        >
+          Work with incredible folks like
+        </motion.p>
       </div>
-      <div className="flex flex-wrap md:gap-24 gap-14 justify-center mt-8 transition-all">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={container}
+        className="flex flex-wrap md:gap-24 gap-14 justify-center mt-8 transition-all"
+      >
         {contributors.map((item) => (
-          <div
+          <motion.div
+            variants={childrenVariant}
             key={item.name}
             className="flex flex-col gap-y-3 items-center hover:scale-110 transition"
           >
@@ -30,16 +62,34 @@ const ContributeSection = () => {
             </div>
 
             <span>{item.name}</span>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       <div className="flex flex-col items-center w-full space-y-8 mt-3">
-        <p className="w-full md:w-1/2 max-md:text-sm">
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="w-full md:w-1/2 max-md:text-sm"
+        >
           Check our org readme for a list of possible projects related to
           zk-email or message us if you have any question
-        </p>
+        </motion.p>
 
-        <div className="flex space-x-4 items-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex space-x-4 items-center"
+        >
           <div className="bg-gradient-to-br from-blue-300 via-violet-300 to-orange-300 p-[1px] rounded w-fit">
             <Link
               href={"https://github.com/zkemail"}
@@ -62,7 +112,7 @@ const ContributeSection = () => {
           >
             Message
           </Link>
-        </div>
+        </motion.div>
       </div>
     </MaxWidthWrapper>
   );

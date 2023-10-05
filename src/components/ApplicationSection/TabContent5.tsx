@@ -13,7 +13,7 @@ const TabContent5 = () => {
         }
         href={"https://anonkyc.com/"}
         button={"Try Demo"}
-        className="flex flex-col justify-center md:flex-row mx-auto items-center gap-10 max-lg:mt-10"
+        className="flex flex-col justify-center max-md:text-center md:flex-row mx-auto items-center gap-10 max-lg:mt-10"
       >
         <div className="flex gap-5 w-1/2 items-center justify-center">
           <div className="bg-red-500 flex items-center justify-center h-[59px] w-[59px] rounded-full">

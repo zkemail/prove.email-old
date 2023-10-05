@@ -23,7 +23,7 @@ const TabContent = ({
     <div className={cn(className)}>
       {children}
 
-      <div className="flex flex-col gap-y-6 lg:w-1/2">
+      <div className="flex flex-col gap-y-6 lg:w-1/2 max-md:items-center">
         <h1 className="font-semibold text-2xl">{title}</h1>
         <p className="text-muted-foreground">{description}</p>
         <div className="bg-gradient-to-br from-blue-300 via-violet-300 to-orange-300 rounded p-[1px] w-fit">
