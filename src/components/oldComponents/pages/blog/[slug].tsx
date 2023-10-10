@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { MDXProvider } from "@mdx-js/react";
