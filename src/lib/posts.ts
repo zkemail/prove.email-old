@@ -7,7 +7,7 @@ export interface Post {
   slug: string;
   title: string;
   date: string;
-  content: any;
+  content: string | any;
 }
 
 export async function getAllPosts(): Promise<Post[]> {
@@ -40,7 +40,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 
   const { data, content } = matter(fileContents);
 
-  const mdxSource = await serialize(content); // serialize the content
+  const mdxSource = await serialize(content);
 
   return {
     slug: slug,

@@ -175,15 +175,35 @@ const MainPage = () => {
                 {" "} to ask questions or get help setting up!
               </Text>
 
-              <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
-                <VStack align="center">
-                  <Heading size="md">Start Building</Heading>
-                  <Text mt={2}>Design via our open source, MIT licensed SDKs.</Text>
-                  <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://www.npmjs.com/search?q=%40zk-email", "_blank")}>
-                    Access SDK
+              <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+                <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
+                  <VStack align="center">
+                    <Heading size="md">Start Building</Heading>
+                    <Text mt={2}>Design via our open source, MIT licensed SDKs.</Text>
+                    <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://www.npmjs.com/search?q=%40zk-email", "_blank")}>
+                      Access SDK
+                    </Button>
+                  </VStack>
+                </Box>
+                <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
+                  <VStack align="center">
+                    <Heading size="md">Watch ZK Email Talk</Heading>
+                    <Text mt={2}></Text>
+                    <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://www.youtube.com/watch?v=sPCHiUT3TmA", "_blank")}>
+                      Watch Bogota Talk
+                    </Button>
+                  </VStack>
+                </Box>
+                <Box bg={grayColor} p={5} borderRadius="md" boxShadow="lg">
+                  <VStack align="center">
+                    <Heading size="md">Hear Vitalik's Take</Heading>
+                    <Text mt={2}>Vitalik comments on ZK Email at Ethcon Korea.</Text>
+                  </VStack>
+                  <Button mt={4} colorScheme="teal" whiteSpace="normal" onClick={() => window.open("https://youtu.be/gsrtxq0xYxs?t=934", "_blank")}>
+                    See Comment at 15:31
                   </Button>
-                </VStack>
-              </Box>
+                </Box>
+              </SimpleGrid>
               <Box mt={4}>
                 <Image src="https://i.imgur.com/46VRTCF.png" alt="Email Stamp" maxH="250px" objectFit="contain" />
               </Box>

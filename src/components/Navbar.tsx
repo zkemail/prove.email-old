@@ -20,7 +20,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 interface NavbarProps {
   onNavClick: (navItem: string) => void;
 }
-const Navbar = ({ onNavClick }: NavbarProps) => {
+const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   // console.log("Color mode is: ", colorMode);
 
