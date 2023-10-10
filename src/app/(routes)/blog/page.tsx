@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { getAllPosts } from "@/lib/posts";
+import { allPosts } from "contentlayer/generated";
 
 export default async function Blog() {
-  const posts = await getAllPosts();
+  const posts = allPosts.sort((a, b) =>
+    compareDesc(new Date(a.date!), new Date(b.date!))
+  );
 
   return (
     <div className="flex flex-col items-center gap-[20px] mt-24">
@@ -22,4 +24,7 @@ export default async function Blog() {
       </ul>
     </div>
   );
+}
+function compareDesc(arg0: Date, arg1: Date): number {
+  throw new Error("Function not implemented.");
 }
