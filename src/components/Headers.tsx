@@ -33,7 +33,7 @@ const Headers = () => {
 
   return (
     <MaxWidthWrapper>
-      <div className="mt-4 flex items-center w-full justify-between">
+      <div className="mt-4 flex items-center w-full justify-between sticky">
         <div className="flex items-center gap-12">
           <Logo />
           <nav className="gap-x-10 lg:flex hidden">

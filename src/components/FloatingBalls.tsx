@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const FloatingBalls = () => {
   return (
-    <div className="-z-10">
+    <div className="-z-10 isolate">
       <motion.div
         transition={{ repeat: Infinity, duration: 3 }}
         animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
