@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import MaxWidthWrapper from "./MaxWidthWrapper";
-import FloatingBalls from "./FloatingBalls";
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import FloatingBalls from "../FloatingBalls";
 import { motion } from "framer-motion";
+import EmailWallet from "./EmailWallet";
+import Zkp2p from "./ZkP2p";
 
 const HeroSection = () => {
   return (
@@ -58,6 +60,11 @@ const HeroSection = () => {
             No MPC assumptions. No trusted hardware. No trusted attestation
             servers. Only trust smart contracts, email, and DNS infrastructure.
           </motion.p>
+
+          <div className="flex flex-col lg:flex-row gap-y-10 justify-between w-full">
+            <EmailWallet />
+            <Zkp2p />
+          </div>
         </div>
       </MaxWidthWrapper>
 

@@ -4,7 +4,7 @@ import TabContent from "../TabContent";
 
 const TabContent3 = () => {
   return (
-    <TabsContent value={"2"}>
+    <TabsContent value={"1"}>
       <TabContent
         title={"ZK Proof of Github"}
         description={

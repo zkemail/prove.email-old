@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const TabContent4 = () => {
   return (
-    <TabsContent value={"3"}>
+    <TabsContent value={"2"}>
       <TabContent
         title={"Proof of Organization"}
         description={

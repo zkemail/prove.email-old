@@ -9,10 +9,9 @@ import TabContent2 from "./TabContent2";
 import TabContent3 from "./TabContent3";
 import TabContent4 from "./TabContent4";
 import TabContent5 from "./TabContent5";
-import { Separator } from "../ui/separator";
 
 const datas = [
-  { name: "Email Wallet" },
+  // { name: "Email Wallet" },
   { name: "ZK Proof of Twitter" },
   { name: "ZK Proof of Github" },
   { name: "Proof of Organization" },
@@ -23,7 +22,7 @@ const ApplicationSection = () => {
   const [twitterInput, setTwitterInput] = useState("");
   // bg-gradient-to-br dark:from-violet-950 dark:via-primary-foreground dark:to-emerald-950  from-violet-50 via-white to-emerald-50
   return (
-    <section className="px-2.5 py-14 md:py-20 md:mt-44 mt-32 justify-center md:max-h-[650px] flex drop-shadow-lg md:mx-32 mx-2 border rounded-xl bg-white dark:bg-slate-950">
+    <section className="px-2.5 py-14 md:py-20 md:mt-32 mt-32 justify-center md:max-h-[650px] flex drop-shadow-lg md:mx-32 mx-2 border rounded-xl bg-white dark:bg-slate-950">
       <Tabs
         defaultValue="0"
         className="justify-center flex flex-col items-center"
@@ -52,7 +51,7 @@ const ApplicationSection = () => {
           }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <TabContent1 />
+          {/* <TabContent1 /> */}
           <TabContent2
             twitterInput={twitterInput}
             setTwitterInput={setTwitterInput}

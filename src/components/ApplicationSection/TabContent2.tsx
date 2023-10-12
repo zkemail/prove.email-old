@@ -11,7 +11,7 @@ interface TabContent2Props {
 
 const TabContent2 = ({ setTwitterInput, twitterInput }: TabContent2Props) => {
   return (
-    <TabsContent value={"1"}>
+    <TabsContent value={"0"}>
       <TabContent
         title={"ZK Proof of Twitter"}
         description={
@@ -28,7 +28,7 @@ const TabContent2 = ({ setTwitterInput, twitterInput }: TabContent2Props) => {
             name="twitter"
             value={twitterInput}
             onChange={(e) => setTwitterInput(e.target.value)}
-            className="focus-visible:ring-0"
+            className="focus-visible:ring-0 w-2/3"
           />
         </div>
       </TabContent>

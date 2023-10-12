@@ -5,7 +5,7 @@ import { FaAirbnb } from "react-icons/fa";
 
 const TabContent5 = () => {
   return (
-    <TabsContent value={"4"}>
+    <TabsContent value={"3"}>
       <TabContent
         title={"ZK KYC"}
         description={

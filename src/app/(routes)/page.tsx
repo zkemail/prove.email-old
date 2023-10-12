@@ -1,7 +1,7 @@
 import ApplicationSection from "@/components/ApplicationSection/ApplicationSection";
 import BuildYourOwn from "@/components/BuildYourOwn";
 import ContributeSection from "@/components/ContributeSection/ContributeSection";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/HeroSection/HeroSection";
 
 const HomePage = () => {
   return (

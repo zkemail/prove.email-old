@@ -8,7 +8,6 @@ import Image from "next/image";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Ghost } from "lucide-react";
 
 interface ApplicationCardProps {
   children: React.ReactNode;
