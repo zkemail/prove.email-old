@@ -7,8 +7,10 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { motion } from "framer-motion";
 import { childrenVariant, container } from "@/lib/motion";
+import { IoIosSend } from "react-icons/io";
 
 const contributors = [
+  { image: "/aayush.svg", name: "Aayush" },
   { image: "/sora.svg", name: "Sora" },
   { image: "/saleel.svg", name: "Saleel" },
   { image: "/rasul.svg", name: "Rasul" },
@@ -49,7 +51,7 @@ const ContributeSection = () => {
         initial="hidden"
         whileInView="show"
         variants={container}
-        className="flex flex-wrap md:gap-24 gap-14 justify-center mt-8 transition-all"
+        className="grid grid-cols-3 md:grid-cols-6 md:gap-24 gap-14 justify-center mt-8 transition-all"
       >
         {contributors.map((item) => (
           <motion.div
@@ -107,9 +109,12 @@ const ContributeSection = () => {
             target="_blank"
             className={cn(
               buttonVariants({ variant: "outline" }),
-              "shadow w-[130px] font-normal"
+              "shadow w-[130px] font-normal gap-2"
             )}
           >
+            <div className="bg-blue-400 rounded-full p-1 flex justify-center items-center">
+              <IoIosSend color="white" size={10} />
+            </div>
             Message
           </Link>
         </motion.div>

@@ -1,10 +1,20 @@
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 import GradientButton from "../GradientButton";
+import { motion } from "framer-motion";
 
 const EmailWallet = () => {
   return (
-    <div className="flex flex-col gap-4 pt-20 lg:w-[570px]">
+    <motion.div
+      initial="hidden"
+      whileInView={"visible"}
+      transition={{ duration: 0.5, delay: 0.4 }}
+      variants={{
+        hidden: { opacity: 0, x: -50 },
+        visible: { opacity: 1, x: 0 },
+      }}
+      className="flex flex-col gap-4 pt-20 lg:w-[570px]"
+    >
       <div className="flex gap-x-2 items-center justify-center">
         <Image src={"/mailOpen.svg"} alt={"mail_open"} width={20} height={20} />
         <div className="flex items-center">
@@ -33,7 +43,7 @@ const EmailWallet = () => {
           Try Testnet Demo
         </GradientButton>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

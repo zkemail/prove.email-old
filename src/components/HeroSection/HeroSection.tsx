@@ -9,7 +9,7 @@ import Zkp2p from "./ZkP2p";
 
 const HeroSection = () => {
   return (
-    <section className="relative flex flex-col md:flex-row mt-32">
+    <section className="relative flex flex-col md:flex-row mt-32 overflow-x-clip">
       <MaxWidthWrapper className="flex justify-center text-center">
         <div className="flex flex-col items-center gap-y-12">
           <motion.div

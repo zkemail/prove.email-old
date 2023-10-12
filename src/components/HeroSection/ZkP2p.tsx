@@ -2,10 +2,20 @@ import { IoLogoVenmo } from "react-icons/io5";
 import GradientButton from "../GradientButton";
 import DollarGradientIcon from "../DollarGradientIcon";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Zkp2p = () => {
   return (
-    <div className="flex flex-col gap-4 relative pt-20 lg:w-[570px]">
+    <motion.div
+      initial="hidden"
+      whileInView={"visible"}
+      transition={{ duration: 0.5, delay: 0.4 }}
+      variants={{
+        hidden: { opacity: 0, x: 50 },
+        visible: { opacity: 1, x: 0 },
+      }}
+      className="flex flex-col gap-4 relative pt-20 lg:w-[570px]"
+    >
       <div className="flex justify-center">
         <div className="flex flex-col items-center gap-2">
           <Image
@@ -36,7 +46,7 @@ const Zkp2p = () => {
           Try Testnet Demo
         </GradientButton>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
