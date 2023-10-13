@@ -7,6 +7,8 @@ interface GradientButtonProps {
   children: React.ReactNode;
   buttonStyle?: string;
   containerStyle?: string;
+  target?: "_blank" | "_self";
+  size?: "sm" | "lg" | "default" | "icon";
 }
 
 const GradientButton = ({
@@ -14,6 +16,8 @@ const GradientButton = ({
   href,
   buttonStyle,
   containerStyle,
+  target,
+  size,
 }: GradientButtonProps) => {
   return (
     <div
@@ -24,9 +28,9 @@ const GradientButton = ({
     >
       <Link
         href={href}
-        target="_blank"
+        target={target ? target : "_blank"}
         className={cn(
-          buttonVariants({ variant: "ghost" }),
+          buttonVariants({ variant: "ghost", size }),
           "bg-tertiary dark:bg-tertiary-foreground text-tertiary-foreground font-normal dark:text-primary rounded hover:dark:bg-tertiary-foreground/80",
           buttonStyle
         )}

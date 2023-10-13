@@ -1,30 +1,33 @@
-import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
+import SortAndFilter from "@/components/Blog/SortAndFilter";
+import Pagination from "@/components/Pagination";
 
-export default async function Blog() {
+interface BlogProps {
+  searchParams: { search: string; recommended: boolean; newest: boolean };
+}
+
+export default function Blog({ searchParams }: BlogProps) {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date!), new Date(b.date!))
   );
 
-  return (
-    <div className="flex flex-col items-center gap-[20px] mt-24">
-      <h1 style={{ fontSize: "2em", fontWeight: "bold" }}>Blog</h1>
+  const filteredPosts = !searchParams.search
+    ? posts
+    : allPosts.filter((post) =>
+        post.title
+          .toLowerCase()
+          .includes(searchParams.search.toLowerCase().replace("%20", " "))
+      );
 
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        {posts.map((post) => (
-          <li key={post.slug} className="my-[10px]">
-            <Link
-              href={`/blog/${post.slug}`}
-              style={{ textDecoration: "none", color: "blue" }}
-            >
-              <h2 style={{ fontSize: "1.5em" }}>{post.title}</h2>
-            </Link>
-          </li>
-        ))}
-      </ul>
+  return (
+    <div className="flex flex-col items-center mt-24">
+      <h1 className="md:text-5xl text-3xl font-semibold mb-16">BLOG</h1>
+
+      <div className="flex mr-auto gap-x-12 w-full">
+        <SortAndFilter />
+        <Pagination posts={filteredPosts} />
+      </div>
     </div>
   );
-}
-function compareDesc(arg0: Date, arg1: Date): number {
-  throw new Error("Function not implemented.");
 }
