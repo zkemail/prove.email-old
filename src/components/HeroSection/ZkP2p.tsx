@@ -27,10 +27,10 @@ const Zkp2p = () => {
           <IoLogoVenmo size={30} color="#3496cd" />{" "}
         </div>
 
-        <DollarGradientIcon className="absolute right-28 lg:right-52 rotate-12 top-14" />
-        <DollarGradientIcon className="absolute left-28 lg:left-52 -rotate-12 top-16" />
-        <DollarGradientIcon className="absolute right-16 lg:right-32 rotate-[60deg] top-36" />
-        <DollarGradientIcon className="absolute left-16 lg:left-36 rotate-[60deg] top-36" />
+        <DollarGradientIcon className="absolute right-[33%] lg:right-52 rotate-12 top-14" />
+        <DollarGradientIcon className="absolute left-[33%] lg:left-52 -rotate-12 top-16" />
+        <DollarGradientIcon className="absolute right-[18%] lg:right-32 rotate-[60deg] top-36" />
+        <DollarGradientIcon className="absolute left-[18%] lg:left-36 rotate-[60deg] top-36" />
       </div>
 
       <div className="flex flex-col gap-8 items-center pt-6">
