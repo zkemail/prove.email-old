@@ -35,7 +35,7 @@ const SortAndFilter = () => {
   }, [searchInput, recommended, newest]);
 
   return (
-    <div className="flex w-[200px] mr-auto mb-20">
+    <div className="lg:flex w-[200px] mr-auto mb-20 hidden">
       <div className="flex flex-col">
         <Input
           placeholder="Search on blog..."
