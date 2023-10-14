@@ -1,14 +1,10 @@
-'use client'
+"use client";
 
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import SortAndFilter from "@/components/Blog/SortAndFilter";
 import Pagination from "@/components/Pagination";
 import { useSearchParams } from "next/navigation";
-
-interface BlogProps {
-  searchParams: { search: string; recommended: boolean; newest: boolean };
-}
 
 export default function Blog() {
   const searchParams = useSearchParams();
