@@ -24,25 +24,25 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
     setSearchInput,
   } = useSortAndFilterStore();
 
-  const setSearchParams = () => {
-    const url = qs.stringifyUrl(
-      {
-        url: window.location.href,
-        query: {
-          search: searchInput,
-          newest,
-          recommended,
-        },
-      },
-      { skipEmptyString: true, skipNull: true }
-    );
+  // const setSearchParams = () => {
+  //   const url = qs.stringifyUrl(
+  //     {
+  //       url: window.location.href,
+  //       query: {
+  //         search: searchInput,
+  //         newest,
+  //         recommended,
+  //       },
+  //     },
+  //     { skipEmptyString: true, skipNull: true }
+  //   );
 
-    router.push(url);
-  };
+  //   router.push(url);
+  // };
 
-  useEffect(() => {
-    setSearchParams();
-  }, [searchInput, recommended, newest]);
+  // useEffect(() => {
+  //   setSearchParams();
+  // }, [searchInput, recommended, newest]);
 
   return (
     <div className={cn("lg:flex", isMobile ? "flex" : "hidden")}>
