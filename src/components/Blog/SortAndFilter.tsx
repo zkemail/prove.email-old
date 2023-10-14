@@ -49,7 +49,7 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
       className={cn("lg:flex w-[200px] mr-auto", isMobile ? "flex" : "hidden")}
     >
       <div className="flex flex-col">
-        {/* <Input
+        <Input
           placeholder="Search on blog..."
           onChange={(e) => setSearchInput(e.target.value)}
           className="w-fit mb-10 max-lg:hidden"
@@ -85,10 +85,9 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
               Recommended
             </Button>
           </div>
-        </div> */}
-        Testing
+        </div>
       </div>
-      <Separator className="h-full mx-8" orientation="vertical" />
+      {/* <Separator className="h-full mx-8" orientation="vertical" /> */}
     </div>
   );
 };
