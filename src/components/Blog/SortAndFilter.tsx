@@ -1,11 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
-import qs from "query-string";
-import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
@@ -14,7 +11,6 @@ export interface SortAndFilterProps {
 }
 
 const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
-  const router = useRouter();
   const {
     newest,
     recommended,
@@ -23,26 +19,6 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
     searchInput,
     setSearchInput,
   } = useSortAndFilterStore();
-
-  // const setSearchParams = () => {
-  //   const url = qs.stringifyUrl(
-  //     {
-  //       url: window.location.href,
-  //       query: {
-  //         search: searchInput,
-  //         newest,
-  //         recommended,
-  //       },
-  //     },
-  //     { skipEmptyString: true, skipNull: true }
-  //   );
-
-  //   router.push(url);
-  // };
-
-  // useEffect(() => {
-  //   setSearchParams();
-  // }, [searchInput, recommended, newest]);
 
   return (
     <div className={cn("lg:flex", isMobile ? "flex" : "hidden")}>

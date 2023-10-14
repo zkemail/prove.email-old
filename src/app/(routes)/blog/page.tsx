@@ -4,26 +4,22 @@ import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import SortAndFilter from "@/components/Blog/SortAndFilter";
 import Pagination from "@/components/Pagination";
-import { useSearchParams } from "next/navigation";
 import MobileSortAndFilter from "@/components/Blog/MobileSortAndFilter";
 import { Input } from "@/components/ui/input";
 import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
 export default function Blog() {
-  const searchParams = useSearchParams();
   const { searchInput, setSearchInput } = useSortAndFilterStore();
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date!), new Date(b.date!))
   );
 
-  const search = searchParams.get("search");
-
-  const filteredPosts = !search
+  const filteredPosts = !searchInput
     ? posts
     : posts.filter((post) =>
         post.title
           .toLowerCase()
-          .includes(search.toLowerCase().replaceAll("%20", " "))
+          .includes(searchInput.toLowerCase().replaceAll("%20", " "))
       );
 
   return (
