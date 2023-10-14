@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
 const SortAndFilter = ({ isMobile }: { isMobile?: boolean }) => {
+  const router = useRouter();
   const {
     newest,
     recommended,
@@ -18,7 +19,6 @@ const SortAndFilter = ({ isMobile }: { isMobile?: boolean }) => {
     searchInput,
     setSearchInput,
   } = useSortAndFilterStore();
-  const router = useRouter();
 
   const setSearchParams = () => {
     const url = qs.stringifyUrl(

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import MobileMenu from "./MobileMenu";
+import MobileHeader from "./MobileHeader";
 import { ModeToggle } from "./ModeToggle";
 import SearchInput from "./SearchInput";
 import MaxWidthWrapper from "./MaxWidthWrapper";
@@ -55,7 +55,7 @@ const Headers = () => {
         <div className="flex gap-x-2">
           <SearchInput className="hidden md:flex" />
           <ModeToggle />
-          <MobileMenu routes={routes} />
+          <MobileHeader routes={routes} />
         </div>
       </div>
     </MaxWidthWrapper>

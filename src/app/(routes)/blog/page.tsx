@@ -4,38 +4,17 @@ import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import SortAndFilter from "@/components/Blog/SortAndFilter";
 import Pagination from "@/components/Pagination";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import MobileSortAndFilter from "@/components/Blog/MobileSortAndFilter";
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
-import qs from "query-string";
 import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
 export default function Blog() {
   const searchParams = useSearchParams();
   const { searchInput, setSearchInput } = useSortAndFilterStore();
-  const router = useRouter();
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date!), new Date(b.date!))
   );
-
-  const setSearchParams = () => {
-    const url = qs.stringifyUrl(
-      {
-        url: window.location.href,
-        query: {
-          search: searchInput,
-        },
-      },
-      { skipEmptyString: true, skipNull: true }
-    );
-
-    router.push(url);
-  };
-
-  useEffect(() => {
-    setSearchParams();
-  }, [searchInput]);
 
   const search = searchParams.get("search");
 

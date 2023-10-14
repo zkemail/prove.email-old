@@ -21,7 +21,7 @@ interface MobileMenuProps {
   }[];
 }
 
-const MobileMenu = ({ routes }: MobileMenuProps) => {
+const MobileHeader = ({ routes }: MobileMenuProps) => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,7 +41,7 @@ const MobileMenu = ({ routes }: MobileMenuProps) => {
               key={route.name}
               className={cn(
                 "rounded-md p-2 capitalize transition hover:bg-secondary",
-                pathname === route.pathname && "rounded-md bg-slate-100"
+                pathname === route.pathname && "rounded-md bg-slate-100 dark:bg-slate-900"
               )}
             >
               <Link href={route.pathname} onClick={() => setIsOpen(false)}>
@@ -55,4 +55,4 @@ const MobileMenu = ({ routes }: MobileMenuProps) => {
   );
 };
 
-export default MobileMenu;
+export default MobileHeader;
