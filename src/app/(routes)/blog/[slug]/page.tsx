@@ -17,7 +17,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   if (!post) return notFound();
 
   return (
-    <div className="mx-auto my-20 flex max-w-screen-lg flex-col gap-y-10 px-10">
+    <section className="mx-auto py-20 flex max-w-screen-lg flex-col gap-y-10 px-10">
       <div className="flex flex-col gap-6">
         <h1 className="text-3xl font-semibold">{post.title}</h1>
         <div className="space-y-1">
@@ -28,6 +28,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <Mdx code={post.body.code} />
-    </div>
+    </section>
   );
 }
