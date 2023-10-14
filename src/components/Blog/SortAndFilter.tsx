@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
@@ -9,16 +9,34 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
-const SortAndFilter = ({ isMobile }: { isMobile?: boolean }) => {
+export interface SortAndFilterProps {
+  newest: boolean | undefined;
+  recommended: boolean | undefined;
+  setNewest: (value: boolean | undefined) => void;
+  setRecommended: (value: boolean | undefined) => void;
+  searchInput: string;
+  setSearchInput: (value: string) => void;
+  isMobile?: boolean;
+}
+
+const SortAndFilter = ({
+  isMobile,
+  newest,
+  recommended,
+  searchInput,
+  setNewest,
+  setRecommended,
+  setSearchInput,
+}: SortAndFilterProps) => {
   const router = useRouter();
-  const {
-    newest,
-    recommended,
-    setNewest,
-    setRecommended,
-    searchInput,
-    setSearchInput,
-  } = useSortAndFilterStore();
+  // const {
+  //   newest,
+  //   recommended,
+  //   setNewest,
+  //   setRecommended,
+  //   searchInput,
+  //   setSearchInput,
+  // } = useSortAndFilterStore();
 
   const setSearchParams = () => {
     const url = qs.stringifyUrl(

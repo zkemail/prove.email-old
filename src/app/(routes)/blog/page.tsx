@@ -8,13 +8,18 @@ import { useSearchParams } from "next/navigation";
 import MobileSortAndFilter from "@/components/Blog/MobileSortAndFilter";
 import { Input } from "@/components/ui/input";
 import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
+import { useState } from "react";
 
 export default function Blog() {
   const searchParams = useSearchParams();
-  const { searchInput, setSearchInput } = useSortAndFilterStore();
+  // const { searchInput, setSearchInput } = useSortAndFilterStore();
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date!), new Date(b.date!))
   );
+
+  const [newest, setNewest] = useState<boolean | undefined>(true);
+  const [recommended, setRecommended] = useState<boolean | undefined>(false);
+  const [searchInput, setSearchInput] = useState("");
 
   const search = searchParams.get("search");
 
@@ -30,10 +35,24 @@ export default function Blog() {
     <div className="flex flex-col items-center mt-24">
       <h1 className="md:text-5xl text-3xl font-semibold mb-16">BLOG</h1>
       <div className="flex mr-auto gap-x-12 w-full">
-        {/* <SortAndFilter /> */}
+        <SortAndFilter
+          newest={newest}
+          recommended={recommended}
+          searchInput={searchInput}
+          setNewest={setNewest}
+          setRecommended={setRecommended}
+          setSearchInput={setSearchInput}
+        />
         <div className="flex flex-col w-full gap-4">
           <div className="flex justify-between">
-            <MobileSortAndFilter />
+            <MobileSortAndFilter
+              newest={newest}
+              recommended={recommended}
+              searchInput={searchInput}
+              setNewest={setNewest}
+              setRecommended={setRecommended}
+              setSearchInput={setSearchInput}
+            />
             <Input
               placeholder="Search on blog..."
               onChange={(e) => setSearchInput(e.target.value)}

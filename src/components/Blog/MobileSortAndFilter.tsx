@@ -1,5 +1,5 @@
 import { ListFilter } from "lucide-react";
-import SortAndFilter from "./SortAndFilter";
+import SortAndFilter, { SortAndFilterProps } from "./SortAndFilter";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,7 +7,14 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-const MobileSortAndFilter = () => {
+const MobileSortAndFilter = ({
+  newest,
+  recommended,
+  searchInput,
+  setNewest,
+  setRecommended,
+  setSearchInput,
+}: SortAndFilterProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="block lg:hidden w-fit ml-2">
@@ -15,7 +22,15 @@ const MobileSortAndFilter = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="ml-2">
         <DropdownMenuItem>
-          <SortAndFilter isMobile />
+          <SortAndFilter
+            isMobile
+            newest={newest}
+            recommended={recommended}
+            searchInput={searchInput}
+            setNewest={setNewest}
+            setRecommended={setRecommended}
+            setSearchInput={setSearchInput}
+          />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
