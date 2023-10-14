@@ -2,8 +2,6 @@
 
 "use client";
 
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRemote } from "next-mdx-remote";
 import { Post } from "contentlayer/generated";
 
 interface PostProps {

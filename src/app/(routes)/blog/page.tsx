@@ -1,24 +1,30 @@
+'use client'
+
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import SortAndFilter from "@/components/Blog/SortAndFilter";
 import Pagination from "@/components/Pagination";
+import { useSearchParams } from "next/navigation";
 
 interface BlogProps {
   searchParams: { search: string; recommended: boolean; newest: boolean };
 }
 
-export default function Blog({ searchParams }: BlogProps) {
+export default function Blog() {
+  const searchParams = useSearchParams();
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date!), new Date(b.date!))
   );
 
-  const filteredPosts = !searchParams.search
+  const searchInput = searchParams.get("search");
+
+  const filteredPosts = !searchInput
     ? posts
-    : allPosts.filter((post) =>
+    : allPosts.filter((post) => {
         post.title
           .toLowerCase()
-          .includes(searchParams.search.toLowerCase().replace("%20", " "))
-      );
+          .includes(searchInput.toLowerCase().replace("%20", " "));
+      });
 
   return (
     <div className="flex flex-col items-center mt-24">
