@@ -7,11 +7,17 @@ import { Button } from "../ui/button";
 import qs from "query-string";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
-const SortAndFilter = () => {
-  const [searchInput, setSearchInput] = useState("");
-  const [newest, setNewest] = useState(true);
-  const [recommended, setRecommended] = useState(false);
+const SortAndFilter = ({ isMobile }: { isMobile?: boolean }) => {
+  const {
+    newest,
+    recommended,
+    setNewest,
+    setRecommended,
+    searchInput,
+    setSearchInput,
+  } = useSortAndFilterStore();
   const router = useRouter();
 
   const setSearchParams = () => {
@@ -35,12 +41,14 @@ const SortAndFilter = () => {
   }, [searchInput, recommended, newest]);
 
   return (
-    <div className="lg:flex w-[200px] mr-auto mb-20 hidden">
+    <div
+      className={cn("lg:flex w-[200px] mr-auto", isMobile ? "flex" : "hidden")}
+    >
       <div className="flex flex-col">
         <Input
           placeholder="Search on blog..."
           onChange={(e) => setSearchInput(e.target.value)}
-          className="w-fit mb-10"
+          className="w-fit mb-10 max-lg:hidden"
           value={searchInput}
         />
         <div className="flex flex-col">
@@ -52,7 +60,10 @@ const SortAndFilter = () => {
                 setRecommended(false);
               }}
               variant={"link"}
-              className={cn("w-fit p-0 m-0", newest && "text-muted-foreground")}
+              className={cn(
+                "w-fit p-0 m-0",
+                !newest && "text-muted-foreground"
+              )}
             >
               Newest
             </Button>
@@ -64,7 +75,7 @@ const SortAndFilter = () => {
               variant={"link"}
               className={cn(
                 "w-fit p-0 m-0",
-                recommended && "text-muted-foreground"
+                !recommended && "text-muted-foreground"
               )}
             >
               Recommended

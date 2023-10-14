@@ -4,31 +4,67 @@ import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import SortAndFilter from "@/components/Blog/SortAndFilter";
 import Pagination from "@/components/Pagination";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import MobileSortAndFilter from "@/components/Blog/MobileSortAndFilter";
+import { Input } from "@/components/ui/input";
+import { useEffect, useState } from "react";
+import qs from "query-string";
+import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
 export default function Blog() {
   const searchParams = useSearchParams();
+  const { searchInput, setSearchInput } = useSortAndFilterStore();
+  const router = useRouter();
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date!), new Date(b.date!))
   );
 
-  const searchInput = searchParams.get("search");
+  const setSearchParams = () => {
+    const url = qs.stringifyUrl(
+      {
+        url: window.location.href,
+        query: {
+          search: searchInput,
+        },
+      },
+      { skipEmptyString: true, skipNull: true }
+    );
 
-  const filteredPosts = !searchInput
+    router.push(url);
+  };
+
+  useEffect(() => {
+    setSearchParams();
+  }, [searchInput]);
+
+  const search = searchParams.get("search");
+
+  const filteredPosts = !search
     ? posts
-    : allPosts.filter((post) => {
+    : posts.filter((post) =>
         post.title
           .toLowerCase()
-          .includes(searchInput.toLowerCase().replace("%20", " "));
-      });
+          .includes(search.toLowerCase().replaceAll("%20", " "))
+      );
 
   return (
     <div className="flex flex-col items-center mt-24">
       <h1 className="md:text-5xl text-3xl font-semibold mb-16">BLOG</h1>
-
       <div className="flex mr-auto gap-x-12 w-full">
         <SortAndFilter />
-        <Pagination posts={filteredPosts} />
+        <div className="flex flex-col w-full gap-4">
+          <div className="flex justify-between">
+            <MobileSortAndFilter />
+            <Input
+              placeholder="Search on blog..."
+              onChange={(e) => setSearchInput(e.target.value)}
+              className="w-fit lg:hidden"
+              value={searchInput}
+            />
+          </div>
+
+          <Pagination posts={filteredPosts} />
+        </div>
       </div>
     </div>
   );
