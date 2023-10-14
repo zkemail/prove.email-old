@@ -45,9 +45,7 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
   }, [searchInput, recommended, newest]);
 
   return (
-    <div
-      className={cn("lg:flex w-[200px] mr-auto", isMobile ? "flex" : "hidden")}
-    >
+    <div className={cn("lg:flex", isMobile ? "flex" : "hidden")}>
       <div className="flex flex-col">
         <Input
           placeholder="Search on blog..."
@@ -87,7 +85,7 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
           </div>
         </div>
       </div>
-      {/* <Separator className="h-full mx-8" orientation="vertical" /> */}
+      <Separator className="h-full mx-8" orientation="vertical" />
     </div>
   );
 };
