@@ -10,33 +10,19 @@ import { cn } from "@/lib/utils";
 import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
 export interface SortAndFilterProps {
-  newest: boolean | undefined;
-  recommended: boolean | undefined;
-  setNewest: (value: boolean | undefined) => void;
-  setRecommended: (value: boolean | undefined) => void;
-  searchInput: string;
-  setSearchInput: (value: string) => void;
   isMobile?: boolean;
 }
 
-const SortAndFilter = ({
-  isMobile,
-  newest,
-  recommended,
-  searchInput,
-  setNewest,
-  setRecommended,
-  setSearchInput,
-}: SortAndFilterProps) => {
+const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
   const router = useRouter();
-  // const {
-  //   newest,
-  //   recommended,
-  //   setNewest,
-  //   setRecommended,
-  //   searchInput,
-  //   setSearchInput,
-  // } = useSortAndFilterStore();
+  const {
+    newest,
+    recommended,
+    setNewest,
+    setRecommended,
+    searchInput,
+    setSearchInput,
+  } = useSortAndFilterStore();
 
   const setSearchParams = () => {
     const url = qs.stringifyUrl(
@@ -63,7 +49,7 @@ const SortAndFilter = ({
       className={cn("lg:flex w-[200px] mr-auto", isMobile ? "flex" : "hidden")}
     >
       <div className="flex flex-col">
-        <Input
+        {/* <Input
           placeholder="Search on blog..."
           onChange={(e) => setSearchInput(e.target.value)}
           className="w-fit mb-10 max-lg:hidden"
@@ -99,7 +85,8 @@ const SortAndFilter = ({
               Recommended
             </Button>
           </div>
-        </div>
+        </div> */}
+        Testing
       </div>
       <Separator className="h-full mx-8" orientation="vertical" />
     </div>

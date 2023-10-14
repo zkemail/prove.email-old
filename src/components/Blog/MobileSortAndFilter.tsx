@@ -7,14 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-const MobileSortAndFilter = ({
-  newest,
-  recommended,
-  searchInput,
-  setNewest,
-  setRecommended,
-  setSearchInput,
-}: SortAndFilterProps) => {
+const MobileSortAndFilter = ({}: SortAndFilterProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="block lg:hidden w-fit ml-2">
@@ -22,15 +15,7 @@ const MobileSortAndFilter = ({
       </DropdownMenuTrigger>
       <DropdownMenuContent className="ml-2">
         <DropdownMenuItem>
-          <SortAndFilter
-            isMobile
-            newest={newest}
-            recommended={recommended}
-            searchInput={searchInput}
-            setNewest={setNewest}
-            setRecommended={setRecommended}
-            setSearchInput={setSearchInput}
-          />
+          <SortAndFilter isMobile />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
