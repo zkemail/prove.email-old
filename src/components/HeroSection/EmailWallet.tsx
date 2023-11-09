@@ -16,18 +16,18 @@ const EmailWallet = () => {
       className="flex flex-col gap-4 pt-20 lg:w-[570px]"
     >
       <div className="flex gap-x-2 items-center justify-center">
-        <Image src={"/mailOpen.svg"} alt={"mail_open"} width={20} height={20} />
+        <Image src={"/mailOpen.svg"} alt={"mail_open"} width={60} height={60} />
         <div className="flex items-center">
-          <Separator className="w-32 dark:bg-white/40 bg-slate-300" />
+          <Separator className="w-16 dark:bg-white/40 bg-slate-300" />
           <Image
             src={"/local_atm.svg"}
             alt="local_atm"
-            width={20}
-            height={20}
+            width={60}
+            height={60}
           />
-          <Separator className="w-32 dark:bg-white/40 bg-slate-300" />
+          <Separator className="w-16 dark:bg-white/40 bg-slate-300" />
         </div>
-        <Image src={"/mailOpen.svg"} alt={"mail_open"} width={20} height={20} />
+        <Image src={"/mailOpen.svg"} alt={"mail_open"} width={60} height={60} />
       </div>
 
       <div className="flex flex-col gap-8 items-center pt-6 mt-auto">

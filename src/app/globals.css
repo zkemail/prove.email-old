@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body, html, :root {
+html, :root {
   height: 100%;
+}
+
+body {
+  background-color: var(--background);
 }
 
 @layer base {

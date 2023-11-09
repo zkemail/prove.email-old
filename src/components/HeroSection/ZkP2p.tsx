@@ -17,14 +17,16 @@ const Zkp2p = () => {
       className="flex flex-col gap-4 relative pt-20 lg:w-[570px]"
     >
       <div className="flex justify-center">
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-row items-center gap-2">
           <Image
             src={"/ethereum-gold.svg"}
             alt="ethereum-gold"
-            width={20}
-            height={20}
+            width={50}
+            height={50}
           />
-          <IoLogoVenmo size={30} color="#3496cd" />{" "}
+          {/* <div className="mt-2"> */}
+            <IoLogoVenmo size={60} color="#3496cd" />
+          {/* </div> */}
         </div>
 
         <DollarGradientIcon className="absolute right-[33%] lg:right-52 rotate-12 top-14" />

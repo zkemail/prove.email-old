@@ -105,7 +105,7 @@ const ContributeSection = () => {
             </Link>
           </div>
           <Link
-            href={"https://t.me/yush_g"}
+            href={"https://t.me/zkemail"}
             target="_blank"
             className={cn(
               buttonVariants({ variant: "outline" }),

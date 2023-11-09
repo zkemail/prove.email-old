@@ -24,7 +24,7 @@ const routes = [
   },
   {
     name: "Contact",
-    pathname: "https://t.me/yush_g",
+    pathname: "https://t.me/zkemail",
   },
 ];
 
