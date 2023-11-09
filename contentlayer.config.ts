@@ -34,6 +34,13 @@ export const Post = defineDocumentType(() => ({
     description: {
       type: "string",
     },
+    math: {
+      type: "boolean",
+    },
+    authors: {
+      type: "list",
+      of: { type: "string" },
+    },
   },
   computedFields: {
     url: {
