@@ -18,13 +18,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
   return (
     <section className="mx-auto py-20 flex max-w-screen-lg flex-col gap-y-10 px-10">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-semibold">{post.title}</h1>
         <div className="space-y-1">
           <span className="text-sm text-muted-foreground">
             {format(new Date(post.date!), "MMMM dd, yyyy")}
           </span>
-          <h3>{post.description}</h3>
+          <h3><i>{post.description}</i></h3>
         </div>
       </div>
       <Mdx code={post.body.code} />

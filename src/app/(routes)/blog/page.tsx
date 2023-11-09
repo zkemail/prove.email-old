@@ -16,10 +16,13 @@ export default function Blog() {
 
   const filteredPosts = !searchInput
     ? posts
-    : posts.filter((post) =>
-        post.title
-          .toLowerCase()
-          .includes(searchInput.toLowerCase().replaceAll("%20", " "))
+    : posts.filter((post) => {
+      console.log((post.title + post.description + post.body.raw)
+      .toLowerCase());
+      return (post.title + post.description + post.body.raw)
+        .toLowerCase()
+        .includes(searchInput.toLowerCase().replaceAll("%20", " "))
+    }
       );
 
   return (

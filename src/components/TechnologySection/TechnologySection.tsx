@@ -19,6 +19,7 @@ const TechnologySection = () => {
           <Link
             href={"https://blog.aayushg.com/posts/zkemail/"}
             className="text-[#7e6cd6] hover:underline underline-offset-4"
+            target="_blank"
           >
             blog post
           </Link>{" "}
@@ -26,6 +27,7 @@ const TechnologySection = () => {
           <Link
             href={"https://www.youtube.com/watch?v=sPCHiUT3TmA&t=769s"}
             className="text-[#7e6cd6] hover:underline underline-offset-4"
+            target="_blank"
           >
             technical presentation
           </Link>{" "}

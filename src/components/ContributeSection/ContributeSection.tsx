@@ -78,8 +78,22 @@ const ContributeSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="w-full md:w-1/2 max-md:text-sm"
         >
-          Check our GitHub readme for an overview of our timeline, [a list of fun projects](https://github.com/zkemail/#help-out) related to
-          infra and applications, or [message us](https://t.me/zkemail) if you have any questions!
+          Check our GitHub readme for an overview of our timeline,{" "}
+          <Link
+            href={"https://github.com/zkemail/#help-out"}
+            className="text-[#7e6cd6] hover:underline underline-offset-4"
+            target="_blank"
+          >
+            a list of fun projects
+          </Link>{" "} related to infra and applications, or {" "}
+          <Link
+            href={"https://t.me/zkemail"}
+            className="text-[#7e6cd6] hover:underline underline-offset-4"
+            target="_blank"
+          >
+            message us
+          </Link>{" "}
+          if you have any questions!
         </motion.p>
 
         <motion.div
@@ -101,7 +115,7 @@ const ContributeSection = () => {
                 "bg-tertiary dark:bg-tertiary-foreground text-tertiary-foreground font-normal dark:text-primary rounded hover:dark:bg-tertiary-foreground/80 w-[130px]"
               )}
             >
-              Project Idea List
+              Project List
             </Link>
           </div>
           <Link
