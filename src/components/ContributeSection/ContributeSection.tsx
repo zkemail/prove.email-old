@@ -78,8 +78,8 @@ const ContributeSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="w-full md:w-1/2 max-md:text-sm"
         >
-          Check our org readme for a list of possible projects related to
-          zk-email or message us if you have any question
+          Check our GitHub readme for an overview of our timeline, [a list of fun projects](https://github.com/zkemail/#help-out) related to
+          infra and applications, or [message us](https://t.me/zkemail) if you have any questions!
         </motion.p>
 
         <motion.div
@@ -94,14 +94,14 @@ const ContributeSection = () => {
         >
           <div className="bg-gradient-to-br from-blue-300 via-violet-300 to-orange-300 p-[1px] rounded w-fit">
             <Link
-              href={"https://github.com/zkemail"}
+              href={"https://github.com/zkemail/#help-out"}
               target="_blank"
               className={cn(
                 buttonVariants({ variant: "ghost" }),
                 "bg-tertiary dark:bg-tertiary-foreground text-tertiary-foreground font-normal dark:text-primary rounded hover:dark:bg-tertiary-foreground/80 w-[130px]"
               )}
             >
-              Org Read me
+              Project Idea List
             </Link>
           </div>
           <Link
