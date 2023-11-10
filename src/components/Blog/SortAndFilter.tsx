@@ -18,6 +18,8 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
     setRecommended,
     searchInput,
     setSearchInput,
+    oldest,
+    setOldest,
   } = useSortAndFilterStore();
 
   return (
@@ -34,7 +36,22 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
           <div className="flex flex-col">
             <Button
               onClick={() => {
+                setRecommended(true);
+                setNewest(false);
+                setOldest(false)
+              }}
+              variant={"link"}
+              className={cn(
+                "w-fit p-0 m-0",
+                !recommended && "text-muted-foreground"
+              )}
+            >
+              Recommended
+            </Button>
+            <Button
+              onClick={() => {
                 setNewest(true);
+                setOldest(false);
                 setRecommended(false);
               }}
               variant={"link"}
@@ -47,16 +64,17 @@ const SortAndFilter = ({ isMobile }: SortAndFilterProps) => {
             </Button>
             <Button
               onClick={() => {
-                setRecommended(true);
                 setNewest(false);
+                setOldest(true);
+                setRecommended(false);
               }}
               variant={"link"}
               className={cn(
                 "w-fit p-0 m-0",
-                !recommended && "text-muted-foreground"
+                !oldest && "text-muted-foreground"
               )}
             >
-              Recommended
+              Oldest
             </Button>
           </div>
         </div>
