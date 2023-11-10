@@ -9,7 +9,7 @@ interface PaginationProps {
   posts: Post[];
 }
 
-const Pagination = ({ posts }: PaginationProps) => {
+const PostAndPagination = ({ posts }: PaginationProps) => {
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(0);
   const pageCount = Math.ceil(posts.length / itemsPerPage);
@@ -46,4 +46,4 @@ const Pagination = ({ posts }: PaginationProps) => {
   );
 };
 
-export default Pagination;
+export default PostAndPagination;

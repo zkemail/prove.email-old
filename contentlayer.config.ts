@@ -37,6 +37,9 @@ export const Post = defineDocumentType(() => ({
     math: {
       type: "boolean",
     },
+    recommanded: {
+      type: "boolean",
+    },
     authors: {
       type: "list",
       of: { type: "string" },
