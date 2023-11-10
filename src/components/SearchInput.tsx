@@ -4,16 +4,18 @@ import { Search } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
+import { useSearchModal } from "@/hooks/useSearchModal";
+import { allPosts } from "contentlayer/generated";
 
 const SearchInput = ({ className }: { className?: string }) => {
-  const [searchInput, setSearchInput] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
+  const posts = allPosts;
+  const { onOpen } = useSearchModal();
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        inputRef.current?.focus();
+        onOpen(posts);
       }
     };
 
@@ -30,13 +32,9 @@ const SearchInput = ({ className }: { className?: string }) => {
     >
       <Search className="absolute text-muted-foreground" size={18} />
       <Input
-        ref={inputRef}
-        type="text"
         placeholder="Search"
-        value={searchInput}
-        name="search"
-        onChange={(e) => setSearchInput(e.target.value)}
-        className="ml-6 h-8 text-black rounded bg-transparent border-transparent p-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent focus:ring-0"
+        onClick={() => onOpen(posts)}
+        className="ml-6 h-8 cursor-pointer text-black rounded bg-transparent border-transparent p-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent focus:ring-0"
       />
       <kbd className="text-sm text-muted-foreground flex items-center gap-1">
         <span className="text-xl">⌘</span>+<span>K</span>
