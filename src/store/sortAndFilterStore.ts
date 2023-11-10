@@ -6,7 +6,9 @@ interface SortAndFilterState {
   recommended: boolean | undefined;
   setRecommended: (value: boolean) => void;
   newest: boolean | undefined;
+  oldest: boolean | undefined;
   setNewest: (value: boolean) => void;
+  setOldest: (value: boolean) => void;
 }
 
 export const useSortAndFilterStore = create<SortAndFilterState>((set) => ({
@@ -14,6 +16,8 @@ export const useSortAndFilterStore = create<SortAndFilterState>((set) => ({
   setSearchInput: (state) => set({ searchInput: state }),
   recommended: undefined,
   newest: undefined,
+  oldest: undefined,
   setRecommended: (state) => set({ recommended: state }),
   setNewest: (state) => set({ newest: state }),
+  setOldest: (state) => set({ oldest: state }),
 }));
