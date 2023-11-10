@@ -13,7 +13,7 @@ const TabContent2 = ({ setTwitterInput, twitterInput }: TabContent2Props) => {
   return (
     <TabsContent value={"0"}>
       <TabContent
-        title={"ZK Proof of Twitter"}
+        title={"Proof of Twitter"}
         description={
           "Prove you own a Twitter username, via proving any email from Twitter."
         }

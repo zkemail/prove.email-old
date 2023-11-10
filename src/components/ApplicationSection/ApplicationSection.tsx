@@ -9,20 +9,24 @@ import TabContent2 from "./TabContent2";
 import TabContent3 from "./TabContent3";
 import TabContent4 from "./TabContent4";
 import TabContent5 from "./TabContent5";
+import TabContent7 from "./TabContent7";
 
 const datas = [
   // { name: "Email Wallet" },
-  { name: "ZK Proof of Twitter" },
-  { name: "ZK Proof of Github" },
-  { name: "Proof of Organization" },
+  { name: "Proof of Twitter" },
+  { name: "Proof of Github" },
+  { name: "Proof of Domain" },
   { name: "ZK KYC" },
+  { name: "Email 2FA Safe" },
 ];
 
 const ApplicationSection = () => {
   const [twitterInput, setTwitterInput] = useState("");
   // bg-gradient-to-br dark:from-violet-950 dark:via-primary-foreground dark:to-emerald-950  from-violet-50 via-white to-emerald-50
   return (
-    <section className="px-2.5 py-14 md:py-20 md:mt-32 mt-32 justify-center md:max-h-[650px] flex drop-shadow-lg md:mx-32 mx-2 border rounded-xl bg-white dark:bg-slate-950">
+    <>
+    <motion.h1 className="text-4xl font-semibold text-center md:mt-32">Community Applications</motion.h1>
+    <section className="px-2.5 py-14 md:py-20 md:mt-8 mt-8 justify-center md:max-h-[650px] flex drop-shadow-lg md:mx-32 mx-2 border rounded-xl bg-white dark:bg-slate-950">
       <Tabs
         defaultValue="0"
         className="justify-center flex flex-col items-center"
@@ -59,9 +63,11 @@ const ApplicationSection = () => {
           <TabContent3 />
           <TabContent4 />
           <TabContent5 />
+          <TabContent7 />
         </motion.div>
       </Tabs>
     </section>
+    </>
   );
 };
 

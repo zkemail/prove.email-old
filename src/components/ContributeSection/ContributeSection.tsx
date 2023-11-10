@@ -10,8 +10,8 @@ import { childrenVariant, container } from "@/lib/motion";
 import { IoIosSend } from "react-icons/io";
 
 const contributors = [
-  { image: "/aayush.svg", name: "Aayush" },
-  { image: "/sora.svg", name: "Sora" },
+  { image: "/sora.svg", name: "Aayush" },
+  { image: "/aayush.svg", name: "Sora" },
   { image: "/saleel.svg", name: "Saleel" },
   { image: "/rasul.svg", name: "Rasul" },
   { image: "/tyler.svg", name: "Tyler" },
