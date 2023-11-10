@@ -1,6 +1,7 @@
 import "./globals.css";
 import Headers from "@/components/Headers";
 import { ThemeProvider } from "@/components/ThemeProviders";
+import SearchModalProvider from "@/components/providers/SearchModalProvider";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Headers />
+          <SearchModalProvider />
           {children}
         </ThemeProvider>
       </body>
