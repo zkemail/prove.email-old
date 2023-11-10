@@ -3,27 +3,27 @@
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import SortAndFilter from "@/components/Blog/SortAndFilter";
-import Pagination from "@/components/Pagination";
+import PostAndPagination from "@/components/PostAndPagination";
 import MobileSortAndFilter from "@/components/Blog/MobileSortAndFilter";
 import { Input } from "@/components/ui/input";
 import { useSortAndFilterStore } from "@/store/sortAndFilterStore";
 
 export default function Blog() {
-  const { searchInput, setSearchInput } = useSortAndFilterStore();
+  const { searchInput, setSearchInput, recommended } = useSortAndFilterStore();
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date!), new Date(b.date!))
   );
 
-  const filteredPosts = !searchInput
-    ? posts
-    : posts.filter((post) => {
-      console.log((post.title + post.description + post.body.raw)
-      .toLowerCase());
-      return (post.title + post.description + post.body.raw)
-        .toLowerCase()
-        .includes(searchInput.toLowerCase().replaceAll("%20", " "))
-    }
-      );
+  const filteredPosts =
+    !searchInput && !recommended
+      ? posts
+      : posts.filter(
+          (post) =>
+            (post.title + post.description + post.body.raw)
+              .toLowerCase()
+              .includes(searchInput.toLowerCase().replaceAll("%20", " ")) &&
+            post.recommanded === recommended
+        );
 
   return (
     <div className="flex flex-col items-center mt-24">
@@ -41,7 +41,7 @@ export default function Blog() {
             />
           </div>
 
-          <Pagination posts={filteredPosts} />
+          <PostAndPagination posts={filteredPosts} />
         </div>
       </div>
     </div>
