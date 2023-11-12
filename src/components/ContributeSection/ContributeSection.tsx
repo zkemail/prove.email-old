@@ -13,8 +13,8 @@ const contributors = [
   { image: "/sora.svg", name: "Aayush" },
   { image: "/aayush.svg", name: "Sora" },
   { image: "/saleel.svg", name: "Saleel" },
-  { image: "/rasul.svg", name: "Rasul" },
-  { image: "/tyler.svg", name: "Tyler" },
+  { image: "/tyler.svg", name: "Rasul" },
+  { image: "/rasul.svg", name: "Tyler" },
   { image: "/andy.svg", name: "Andy" },
 ];
 
