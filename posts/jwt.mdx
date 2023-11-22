@@ -33,13 +33,13 @@ JWTs consist of a header, payload, and signature, all of which are encoded with 
 
 header.payload.signature
 
-The JWT payload can include information about the user, such as their name, access status, and email address, as well as information about the token, such as the token issuance time and token expiration time. 
+The JWT payload can include information about the user, such as their name, access status, and email address, as well as information about the token, such as the token issuance time and token expiration time.
 
 For JWTs to work with Nozee, we need to be able to extract the JWT, verify the JWT with the RS256 algorithm using the trusted server’s public key, and extract the domain from the JWT, meaning the JWT must contain the user’s email. 
 
 **Retrieving the trusted server’s public key**
 
-For the Auth0 standard, servers that sign their JWTs with the RS256 algorithm have certificates containing the JWT-signing public key available at [https://auth0.[domain].com/pem](https://[domain].com/pem) or [https://[domain].auth0.com/pem](https://[domain].com/pem). The public key must be extracted from the certificate using OpenSSL. This is the method Nozee used to obtain the OpenAI public key. Servers that want to easily verify the JWTs should obtain keys from [https://auth0.[your_domain].com/.well-known/jwks.json](https://auth0.[your_domain].com/.well-known/jwks.json) or [https://[your_domain].auth0.com/.well-known/jwks.json](https://auth0.[your_domain].com/.well-known/jwks.json), as libraries support this endpoint. The first “x5c” value is the certificate containing the public key used to sign JWTs. 
+For the Auth0 standard, servers that sign their JWTs with the RS256 algorithm have certificates containing the JWT-signing public key available at [https://auth0.[domain].com/pem](https://[domain].com/pem) or [https://[domain].auth0.com/pem](https://[domain].com/pem). For OpenAI/ChatGPT, these are at [auth0.openai.com/pem](https://auth0.openai.com/pem). The public key must be extracted from the certificate using OpenSSL. This is the method Nozee used to obtain the OpenAI public key. Servers that want to easily verify the JWTs should obtain keys from [https://auth0.[your_domain].com/.well-known/jwks.json](https://auth0.[your_domain].com/.well-known/jwks.json) or [https://[your_domain].auth0.com/.well-known/jwks.json](https://auth0.[your_domain].com/.well-known/jwks.json), as libraries support this endpoint. The first “x5c” value is the certificate containing the public key used to sign JWTs. 
 
 **Extracting the JWT**
 
@@ -158,7 +158,39 @@ While OpenAI was the only site we found that works for “proof of organization�
 
 ## Application Design
 
-The main algorithm involved in verifying a JWT is the RS256 algorithm, at least in our case. For our proof of concept, OpenAI’s JWTs worked best when it came to extracting the JWT and information stored in the JWT. We also made a dummy application ([https://get-jwt.vercel.app/](https://get-jwt.vercel.app/)) to generate JWTs and expose them through network requests to demonstrate that the Nozee circuit can be generalized to support other RS256 JWTs that have a header and payload less than 1024 characters, and includes an email domain in the payload. 
+The main algorithm involved in verifying a JWT is the RS256 algorithm, at least in our case. For our proof of concept, OpenAI’s JWTs worked best when it came to extracting the JWT and information stored in the JWT. We also made a dummy application ([https://get-jwt.vercel.app/](https://get-jwt.vercel.app/)) to generate JWTs and expose them through network requests to demonstrate that the Nozee circuit can be generalized to support other RS256 JWTs that have a header and payload less than 1024 characters, and includes an email domain in the payload. This is the redacted exact structure of a base64-decoded key we use from them:
+
+#### Header
+```
+{
+  "alg": "RS256",
+  "typ": "JWT",
+  "kid": "M****************************************************g"
+}
+```
+#### Payload
+```
+{
+  "https://api.openai.com/profile": {
+    "email": "****@******.com",
+    "email_verified": true
+  },
+  "https://api.openai.com/auth": {
+    "poid": "org-d**********************e",
+    "user_id": "user-J**********************X"
+  },
+  "iss": "https://auth0.openai.com/",
+  "sub": "google-oauth2|1*******************6",
+  "aud": [
+    "https://api.openai.com/v1",
+    "https://openai.openai.auth0app.com/userinfo"
+  ],
+  "iat": 1********9,
+  "exp": 1********9,
+  "azp": "T******************************G",
+  "scope": "openid email profile model.read model.request organization.read organization.write offline_access"
+}
+```
 
 Everytime you login to OpenAI with your email, their server will construct a JWT containing your email, and sign it with their private key.
 
