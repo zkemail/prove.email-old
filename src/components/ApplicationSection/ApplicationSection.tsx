@@ -25,7 +25,7 @@ const ApplicationSection = () => {
   // bg-gradient-to-br dark:from-violet-950 dark:via-primary-foreground dark:to-emerald-950  from-violet-50 via-white to-emerald-50
   return (
     <>
-    <motion.h1 className="text-4xl font-semibold text-center md:mt-32">Community Applications</motion.h1>
+    <motion.h1 className="text-4xl font-semibold text-center mt-16 md:mt-32">Community Applications</motion.h1>
     <section className="px-2.5 py-14 md:py-20 md:mt-8 mt-8 justify-center md:max-h-[650px] flex drop-shadow-lg md:mx-32 mx-2 border rounded-xl bg-white dark:bg-slate-950">
       <Tabs
         defaultValue="0"
