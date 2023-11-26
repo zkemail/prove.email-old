@@ -1,4 +1,4 @@
-import { allPosts } from "contentlayer/generated";
+import { Post, allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { Mdx } from "@/components/Blog/Mdx";
@@ -24,7 +24,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
           <span className="text-sm text-muted-foreground">
             {format(new Date(post.date!), "MMMM dd, yyyy")}
           </span>
-          <h3><i>{post.description}</i></h3>
+          <h3>
+            <i>{post.description}</i>
+          </h3>
         </div>
       </div>
       <Mdx code={post.body.code} />
