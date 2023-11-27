@@ -201,11 +201,11 @@ With initial support from 0xPARC and the Ethereum Foundation's Privacy & Scaling
 
 ### Footnotes
 
-[^1] TLS-Notary
+[^1]: TLS-Notary
 
 You might think that all data online must be signed already, or else how would we trust that a website is who they say they are? Unfortunately, this is not the case -- HTTPS/TLS, the standard used to encrypt all web traffic, surprisingly lacks a signing feature because it uses symmetric encryption instead (meaning there are no private keys). This means that any server data we pull from these sessions can be forged by any client (the client and the server share the same key). TLS-Notary attempts to solve some of these problems, but requires users to communicate with websites not as themselves, but as individual shareholders in a multiparty computation protocol with a decentralized network of verifiers, who will ensure that the client is not forging messages. The compute cost and complexity of this solution (not to mention the non-collusion assumption on the MPC) make us yearn for a more elegant solution, one that is practical today on-chain.
 
-[^2] DKIM Key Rotation
+[^2]: DKIM Key Rotation
 
 How do we handle the oracle problem of getting rotating DKIM keys on-chain? For the few sites using DNSSEC, we can verify that directly. Unfortunately, only about 200 in the Alexa top 100K sites use DNSSEC.
 
@@ -213,7 +213,7 @@ For the ones not using it, we can use a fraud proving mechanism where if someone
 
 Thusly the only attack is when the key rotates, someone claims it rotates to a different fake key, (their own) and that disagrees with the consensus. To avoid this, in final release, we intend to have a 3/4 system between the community majority, oracles like Uma/Chainlink, the developers of the protocol and key ecosystem players that use it, and past users who have historically submitted honest proofs. We'll start with a dev multisig for the beta release, and are considering one signer being a server whose instructions are authenticated with risc0 (the network request can obviously be spoofed so it's also imperfect). We are open to proposals on more secure ways to handle key rotation on-chain.
 
-[^3] Twitter ZK Circuit
+[^3]: Twitter ZK Circuit
 
 So what exactly is going on in this ZK circuit? Well, as with every other email, we verify that the RSA signature in the DKIM holds. We verify that the escaped "from:" email is in fact `@twitter.com`. And we check the `\r\n` before `from` in the header to make sure no one's trying to stuff a fake `from` address in another field like the subject line.
 
