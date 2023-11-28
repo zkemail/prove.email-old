@@ -120,7 +120,7 @@ const components = {
   th: ({
     className,
     ...props
-  }: React.ThHTMLAttributes<HTMLTableHeaderCellElement>) => (
+  }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
         "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
@@ -132,7 +132,7 @@ const components = {
   td: ({
     className,
     ...props
-  }: React.TdHTMLAttributes<HTMLTableDataCellElement>) => (
+  }: React.TdHTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
         "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
