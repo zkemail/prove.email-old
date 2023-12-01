@@ -79,17 +79,31 @@ const BuildYourOwn = () => {
         <h3 className="font-medium text-lg">
           Design via our open source, MIT licensed SDKs.
         </h3>
-        <div className="bg-gradient-to-br from-blue-300 via-violet-300 to-orange-300 rounded p-[1px] w-fit self-center">
-          <Link
-            href={"https://www.npmjs.com/search?q=%40zk-email"}
-            target="_blank"
-            className={cn(
-              buttonVariants({ variant: "ghost" }),
-              "bg-tertiary dark:bg-tertiary-foreground text-tertiary-foreground font-normal dark:text-primary rounded hover:dark:bg-tertiary-foreground/80"
-            )}
-          >
-            Access SDK
-          </Link>
+        <div className="flex gap-4 self-center">
+          <div className="bg-gradient-to-br from-blue-300 via-violet-300 to-orange-300 rounded p-[1px] w-fit">
+            <Link
+              href={"https://www.npmjs.com/search?q=%40zk-email"}
+              target="_blank"
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "bg-tertiary dark:bg-tertiary-foreground text-tertiary-foreground font-normal dark:text-primary rounded hover:dark:bg-tertiary-foreground/80"
+              )}
+            >
+              Access SDK
+            </Link>
+          </div>
+          <div className="bg-gradient-to-br from-blue-300 via-violet-300 to-orange-300 rounded p-[1px] w-fit">
+            <Link
+              href={"https://prove.email/docs.html"}
+              target="_blank"
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "bg-tertiary dark:bg-tertiary-foreground text-tertiary-foreground font-normal dark:text-primary rounded hover:dark:bg-tertiary-foreground/80"
+              )}
+            >
+              View Docs
+            </Link>
+          </div>
         </div>
       </motion.div>
     </MaxWidthWrapper>
