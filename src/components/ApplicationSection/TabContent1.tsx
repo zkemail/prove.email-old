@@ -14,7 +14,7 @@ const TabContent1 = () => {
         description={
           "Email a relayer in order to transfer money or transact on Ethereum, anonymously."
         }
-        href={"https://sendeth.org/"}
+        href={"https://emailwallet.org/"}
         button={"Try Testnet Demo"}
         className="flex flex-col lg:flex-row gap-x-40 gap-y-10 relative items-center max-md:text-center"
       >
