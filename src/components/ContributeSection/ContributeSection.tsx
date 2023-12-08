@@ -10,12 +10,22 @@ import { childrenVariant, container } from "@/lib/motion";
 import { IoIosSend } from "react-icons/io";
 
 const contributors = [
-  { image: "/sora.svg", name: "Aayush" },
-  { image: "/aayush.svg", name: "Sora" },
-  { image: "/saleel.svg", name: "Saleel" },
-  { image: "/tyler.svg", name: "Rasul" },
-  { image: "/rasul.svg", name: "Tyler" },
-  { image: "/andy.svg", name: "Andy" },
+  {
+    image: "/aayush.png",
+    name: "Aayush",
+    bgColor: "bg-gray-100",
+    padding: "pt-1.5 pb-3 px-1.5",
+  },
+  {
+    image: "/sora.svg",
+    name: "Sora",
+    bgColor: "bg-rose-200",
+    padding: "",
+  },
+  { image: "/saleel.png", name: "Saleel", bgColor: "bg-emerald-200", padding: "scale-110" },
+  { image: "/tyler.svg", name: "Rasul", bgColor: "", padding: "" },
+  { image: "/rasul.svg", name: "Tyler", bgColor: "", padding: "" },
+  { image: "/saleel.svg", name: "Elo", bgColor: "", padding: "" },
 ];
 
 const ContributeSection = () => {
@@ -59,8 +69,18 @@ const ContributeSection = () => {
             key={item.name}
             className="flex flex-col gap-y-3 items-center hover:scale-110 transition"
           >
-            <div className="relative sm:h-[70px] sm:w-[70px] h-[55px] w-[55px]">
-              <Image src={item.image} alt={item.name.toLowerCase()} fill />
+            <div
+              className={cn(
+                "relative sm:h-[70px] flex justify-center items-center sm:w-[70px] h-[55px] w-[55px] rounded-full",
+                item.bgColor
+              )}
+            >
+              <Image
+                src={item.image}
+                alt={item.name.toLowerCase()}
+                fill
+                className={cn(item.padding)}
+              />
             </div>
 
             <span>{item.name}</span>
@@ -85,7 +105,8 @@ const ContributeSection = () => {
             target="_blank"
           >
             a list of fun projects
-          </Link>{" "} related to infra and applications, or {" "}
+          </Link>{" "}
+          related to infra and applications, or{" "}
           <Link
             href={"https://t.me/zkemail"}
             className="text-[#7e6cd6] hover:underline underline-offset-4"
