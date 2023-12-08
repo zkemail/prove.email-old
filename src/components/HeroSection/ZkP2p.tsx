@@ -45,7 +45,7 @@ const Zkp2p = () => {
         </div>
 
         <GradientButton href="https://zkp2p.xyz/" buttonStyle="w-fit">
-          Try Testnet Demo
+          Try on Mainnet L2
         </GradientButton>
       </div>
     </motion.div>
