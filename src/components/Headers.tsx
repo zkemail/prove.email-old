@@ -16,7 +16,7 @@ const routes = [
   },
   {
     name: "Docs",
-    pathname: "https://zkemail.gitbook.io/zk-email/",
+    pathname: "http://zkemail.gitbook.io/zk-email/",
   },
   {
     name: "Demos",
