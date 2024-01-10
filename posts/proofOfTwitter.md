@@ -378,8 +378,11 @@ It then defines constants that represent the indices of various public signals w
 
 ```solidity
     uint32 public constant pubKeyHashIndexInSignals = 0; // index of DKIM public key hash in signals array
+
     uint32 public constant usernameIndexInSignals = 1; // index of first packed twitter username in signals array
+
     uint32 public constant usernameLengthInSignals = 1; // length of packed twitter username in signals array
+    
     uint32 public constant addressIndexInSignals = 2; // index of ethereum address in signals array
 ```
 
@@ -407,9 +410,6 @@ It also contains a function that uses the `verifier` contract to check the valid
 Additionally, the contract includes logic to extract the Twitter username from the packed signals array. Although currently, a Twitter username can fit within a single signal, the code is designed to handle longer usernames that may span multiple signals:
 
 ```solidity
-    // Extract the username chunks from the signals. 
-    // Note that this is not relevant now as username can fit in one signal
-    // TODO: Simplify signal uint to string conversion
     uint256[] memory usernamePack = new uint256[](usernameLengthInSignals);
     for (uint256 i = usernameIndexInSignals; i < (usernameIndexInSignals + usernameLengthInSignals); i++) {
         usernamePack[i - usernameIndexInSignals] = signals[i];
