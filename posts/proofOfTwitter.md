@@ -3,20 +3,28 @@ title: "Building Proof of Twitter using ZK Email"
 date: 2023-08-18T22:12:03.284Z
 type: Post
 draft: false
-recommanded: false
+recommended: false
 slug: "tutorial"
 category: "10 min read"
 tags: ["intro"]
-description: "This tutorial guides you through creating a Twitter circom circuit using ZK Email's libraries.
+description: "This tutorial guides you through creating a Twitter circom circuit using ZK Email's libraries."
 ---
 
 # Building Proof of Twitter using ZK Email
 
 ## Introduction
 
-Emails serve as our gateway to various online services and platforms. ZK Email uses ZK proofs to authenticate these interactions while preserving privacy.
+Emails serve as our gateway to various online services and platforms. ZK Email uses zk proofs to authenticate these interactions on chain while preserving privacy.
 
  This guide will walk you through setting up a circuit that enables you to verify your Twitter username on-chain, without disclosing any information beyond the username itself. This process uses ZK Email libraries and regex verification to ensure the authenticity and privacy of your Twitter username, allowing you to mint an NFT upon completion.
+
+ ## Experience it Yourself
+
+ Before diving into the technical details, we encourage you to experience Proof of Twitter firsthand. Visit [https://twitter.prove.email/](https://twitter.prove.email/) to interact with a user-friendly interface that showcases the functionality of this technology. This hands-on experience will provide you with a practical understanding of the concepts we'll explore in this guide, making the process of building your own circuit more intuitive.
+
+![Proof of Twitter UI](/public/proofOfTwitterUi.png)
+
+
 
 ## ZK Email Library
 
@@ -361,6 +369,6 @@ Understanding these components is essential for anyone looking to build a system
 
 ## Conclusion
 
-This tutorial provided just one example of a circuit you can build. For more examples and resources, you can check out the [zk-email verifier usage guide](https://zkemail.gitbook.io/zk-email/zk-email-verifier/usage-guide) and the [Twitter Circuit Code](https://github.com/zkemail/zk-email-verify/blob/main/packages/twitter-verifier-circuits/twitter.circom).
+This guide provided just one example of a circuit you can build. For more examples and resources, you can check out the [zk-email verifier usage guide](https://zkemail.gitbook.io/zk-email/zk-email-verifier/usage-guide) and the [Twitter Circuit Code](https://github.com/zkemail/zk-email-verify/blob/main/packages/twitter-verifier-circuits/twitter.circom).
 
 This is just the beginning of verifiable provenance data. As you continue to explore and build, you'll discover the vast potential of this technology. The power of zk-SNARKs allows for the creation of systems where data can be verified without revealing any additional information. This opens up a world of possibilities for privacy-preserving applications.
