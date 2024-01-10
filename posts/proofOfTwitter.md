@@ -315,12 +315,66 @@ To begin, install this specific version of snarkjs which supports chunked key ve
 npm install snarkjs@git+https://github.com/vb7401/snarkjs.git#24981febe8826b6ab76ae4d76cf7f9142919d2b8
 ```
 
+In case you're performing server-side proving, you can install the standard version of snarkjs.
 
+```
+npm install -g snarkjs
+```
+
+The process of generating proving and verification keys for a zk-SNARK circuit involves several steps.
+
+1. **Apply the random beacon**: This step applies a random beacon to the powers of tau file. The beacon is a random number that is publicly known.
+```
+snarkjs powersoftau beacon pot12_0001.ptau pot12_beacon.ptau 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n='Final Beacon'
+```
+2. **Prepare for phase 2**: This step prepares the powers of tau file for the second phase of the trusted setup.
+```
+snarkjs powersoftau prepare phase2 pot12_beacon.ptau pot12_final.ptau -v
+```
+
+3. **Contribute to phase 2**: This step creates a new zk-snark circuit and contributes to the second phase of the trusted setup.
+
+```
+snarkjs zkey new pot12_final.ptau twitter.wasm twitter_0000.zkey
+snarkjs zkey contribute twitter_0000.zkey twitter_0001.zkey --name='1st Contributor Name' -v
+```
+
+4. **Apply the final beacon**: This step applies a final beacon to the Twitter circuit.
+
+```
+snarkjs zkey beacon twitter_0001.zkey twitter_final.zkey 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n='Final Beacon'
+```
+5. **Export the verification key**: This step exports the verification key from the Twitter circuit. The verification key is used to verify proofs.
+```
+snarkjs zkey export verificationkey twitter_final.zkey
+```
+
+Now, you have the `verification_key.json` file which can be used to verify proofs off-chain.
+
+To create a Solidity verifier that allows you to verify your proof on the Ethereum blockchain, run:
+```
+snarkjs zkey export solidityverifier circuit_final.zkey verifier.sol
+```
+This will generate a `verifier.sol` contract that is used to validate the proof on chain.
 
 ## Contracts
 The `ProofOfTwitter.sol` contract includes the required on-chain logic for verifying Twitter accounts. When the proof is validated successfully, an NFT is minted on the blockchain.
 
-This contract defines constants that represent the indices of various public signals within the proof, such as the DKIM public key hash, the Twitter username, and the Ethereum address. These constants are used to retrieve the corresponding values from the signals array during verification.
+
+The contract begins by importing two crucial files: `Dkimregistry.sol` and `Verifier.sol`.
+
+```
+import { Verifier } from "./Verifier.sol";
+import "@zk-email/contracts/DKIMRegistry.sol";
+```
+
+`Dkimregistry.sol` maintains a registry of public domains. This registry is used to cross-verify the domain from which the email originated in the proof.
+
+`Verifier.sol` contract is responsible for validating the proof.
+
+
+
+It then defines constants that represent the indices of various public signals within the proof, such as the DKIM public key hash, the Twitter username, and the Ethereum address. These constants are used to retrieve the corresponding values from the signals array during verification.
 
 ```solidity
     uint32 public constant pubKeyHashIndexInSignals = 0; // index of DKIM public key hash in signals array
