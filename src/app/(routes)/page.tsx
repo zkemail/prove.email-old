@@ -10,8 +10,8 @@ const HomePage = () => {
       <HeroSection />
       <ApplicationSection />
       <BuildYourOwn />
-      <ContributeSection />
       <PartnerForm />  
+      <ContributeSection />
     </div>
   );
 };
