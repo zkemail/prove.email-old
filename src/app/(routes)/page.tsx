@@ -2,6 +2,7 @@ import ApplicationSection from "@/components/ApplicationSection/ApplicationSecti
 import BuildYourOwn from "@/components/BuildYourOwn";
 import ContributeSection from "@/components/ContributeSection/ContributeSection";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import PartnerForm from "@/components/partnerSection/partnerForm";
 
 const HomePage = () => {
   return (
@@ -9,6 +10,7 @@ const HomePage = () => {
       <HeroSection />
       <ApplicationSection />
       <BuildYourOwn />
+      <PartnerForm />  
       <ContributeSection />
     </div>
   );

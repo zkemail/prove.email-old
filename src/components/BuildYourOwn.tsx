@@ -11,7 +11,7 @@ import { fadeIn } from "@/lib/motion";
 
 const BuildYourOwn = () => {
   return (
-    <MaxWidthWrapper className="flex flex-col gap-y-16 items-center text-center py-28">
+    <MaxWidthWrapper className="flex flex-col gap-y-16 items-center text-center pt-28 pb-10">
       <div className="flex flex-col gap-y-8 items-center">
         <motion.h1
           initial="hidden"
