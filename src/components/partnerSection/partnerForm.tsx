@@ -37,7 +37,7 @@ const PartnerForm = () => {
           }}
           transition={{ duration: 0.5 }}>
   <Link
-              href={"https://8cjj1cpft6i.typeform.com/to/P8RKAoSE"}
+              href={"https://forms.gle/3SDkGcU3LnYHpepr7"}
               target="_blank"
               className={cn(
                 buttonVariants({ variant: "ghost" }),
