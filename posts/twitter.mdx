@@ -14,8 +14,6 @@ aliases:
   - /tutorial
 ---
 
-# Building Proof of Twitter using ZK Email
-
 ## Introduction
 
 Emails serve as our gateway to various online services and platforms. ZK Email uses zk proofs to authenticate these interactions on chain while preserving privacy.
@@ -186,7 +184,7 @@ The `email-verifier.circom` file validates each of the inputs to the circuit, wh
 ### Step 2: Start Your Circuit Template
 
 ```circom
-template TwitterVerifier(max_header_bytes, max_body_bytes, n, k, pack_size, expose_from, expose_to) {}
+template TwitterVerifier(max_header_bytes, max_body_bytes, n, k, pack_size) {}
 ```
 
 In this step, we start the circuit template with the following arguments:
