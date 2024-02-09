@@ -23,9 +23,9 @@ const contributors = [
     padding: "",
   },
   { image: "/saleel.png", name: "Saleel", bgColor: "bg-emerald-200", padding: "scale-110" },
-  { image: "/tyler.svg", name: "Rasul", bgColor: "", padding: "" },
-  { image: "/rasul.svg", name: "Tyler", bgColor: "", padding: "" },
-  { image: "/saleel.svg", name: "Elo", bgColor: "", padding: "" },
+  { image: "/tyler.svg", name: "Wataru", bgColor: "", padding: "" },
+  { image: "/rasul.svg", name: "Aditya", bgColor: "", padding: "" },
+  { image: "/elo.svg", name: "Elo", bgColor: "", padding: "" },
 ];
 
 const ContributeSection = () => {
