@@ -24,7 +24,7 @@ Emails serve as our gateway to various online services and platforms. ZK Email u
 
  Before diving into the technical details, we encourage you to experience Proof of Twitter firsthand. Visit [https://twitter.prove.email/](https://twitter.prove.email/) to interact with a user-friendly interface that showcases the functionality of this technology. This hands-on experience will provide you with a practical understanding of the concepts we'll explore in this guide, making the process of building your own circuit more intuitive.
 
-![Proof of Twitter UI](/proofOfTwitterUi.png)
+![Proof of Twitter UI](/public/proofOfTwitterUI.png)
 
 
 
@@ -43,13 +43,13 @@ The ZK Email library contains 3 packages. 
 Create a new folder and initiate your repository:
 
 ```
-npm init -y
+yarn init -y
 ```
 
 Install all three packages by running:
 
 ```bash
-npm install @zk-email/circuits @zk-email/helpers @zk-email/contracts
+yarn add @zk-email/circuits @zk-email/helpers @zk-email/contracts
 ```
 
 ## Preparing the Email from Twitter Containing the Username
@@ -329,23 +329,30 @@ npm install -g snarkjs
 
 The process of generating proving and verification keys for a zk-SNARK circuit involves several steps.
 
-1. **Apply the random beacon**: This step applies a random beacon to the powers of tau file. The beacon is a random number that is publicly known.
-```bash
-snarkjs powersoftau beacon pot12_0001.ptau pot12_beacon.ptau 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n='Final Beacon'
+1. **Download Phase 1 File**: First, download the `powersOfTau28_hez_final_22.ptau` file from the provided URL. This file is necessary for the `zkey new` command to generate the initial `.zkey` file with zero contributions.
+
 ```
-2. **Prepare for phase 2**: This step prepares the powers of tau file for the second phase of the trusted setup.
-```bash
-snarkjs powersoftau prepare phase2 pot12_beacon.ptau pot12_final.ptau -v
+bash
+wget https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28hez_final22.ptau
 ```
 
-3. **Contribute to phase 2**: This step creates a new zk-snark circuit and contributes to the second phase of the trusted setup.
+2. **Apply the random beacon**: This step applies a random beacon to the powers of tau file. The beacon is a random number that is publicly known.
+```bash
+snarkjs powersoftau beacon pot22_0001.ptau pot22_beacon.ptau 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n='Final Beacon'
+```
+3. **Prepare for phase 2**: This step prepares the powers of tau file for the second phase of the trusted setup.
+```bash
+snarkjs powersoftau prepare phase2 pot22_beacon.ptau pot22_final.ptau -v
+```
+
+4. **Contribute to phase 2**: This step creates a new zk-snark circuit and contributes to the second phase of the trusted setup.
 
 ```bash
-snarkjs zkey new pot12_final.ptau twitter.wasm twitter_0000.zkey
+snarkjs zkey new pot22_final.ptau twitterverifier.wasm twitter_0000.zkey
 snarkjs zkey contribute twitter_0000.zkey twitter_0001.zkey --name='1st Contributor Name' -v
 ```
 
-4. **Apply the final beacon**: This step applies a final beacon to the Twitter circuit.
+5. **Apply the final beacon**: This step applies a final beacon to the Twitter circuit.
 
 ```bash
 snarkjs zkey beacon twitter_0001.zkey twitter_final.zkey 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 10 -n='Final Beacon'
