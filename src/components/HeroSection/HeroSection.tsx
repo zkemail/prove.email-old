@@ -32,8 +32,7 @@ const HeroSection = () => {
                   height={10}
                 />
                 <span className="text-tertiary-foreground md:text-sm text-xs">
-                  The future of identity verification and transactions on
-                  Ethereum
+                  Email-based identity verification and transactions on Ethereum
                 </span>
               </div>
             </motion.div>
@@ -60,9 +59,8 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="max-md:text-sm text-muted-foreground w-2/3"
             >
-              No MPC assumptions. No trusted hardware. No trusted attestation
-              servers. Only trust smart contracts, email, and DNS
-              infrastructure.
+              Anonymously prove any subset of any email you sent or received, on-chain. 
+              Directly verify the email sender, without having to trust us.
             </motion.p>
 
             <div className="flex flex-col lg:flex-row gap-y-10 justify-between w-full">
