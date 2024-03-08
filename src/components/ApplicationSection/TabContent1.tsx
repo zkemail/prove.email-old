@@ -12,7 +12,7 @@ const TabContent1 = () => {
       <TabContent
         title={"Email Wallet"}
         description={
-          "Email a relayer in order to transfer money or transact on Ethereum, anonymously."
+          "Send emails to transact on Ethereum, anonymously."
         }
         href={"https://emailwallet.org/"}
         button={"Try Testnet Demo"}

@@ -39,8 +39,8 @@ const Zkp2p = () => {
         <div className="flex flex-col items-center gap-3">
           <h1 className="text-lg font-semibold">ZK P2P</h1>
           <p className="lg:w-4/5 w-full text-muted-foreground">
-            Peer to peer marketplace for decentralized on ramp/offramp to
-            ethereum via Venmo and other payment services.
+            Peer to peer marketplace for decentralized onramp/offramp to
+            Ethereum via Venmo, UPI, Garanti, and more.
           </p>
         </div>
 
