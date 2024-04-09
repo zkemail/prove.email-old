@@ -39,7 +39,7 @@ const EmailWallet = () => {
           </p>
         </div>
 
-        <GradientButton href="https://sendeth.org/" buttonStyle="w-fit">
+        <GradientButton href="https://emailwallet.org/" buttonStyle="w-fit">
           Try Testnet Demo
         </GradientButton>
       </div>
