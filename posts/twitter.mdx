@@ -107,7 +107,7 @@ After setting up the main Twitter verification circuit, we can proceed to genera
 You can create a `inputs.ts` file and place this code inside:
 ``` typescript
 import { bytesToBigInt, fromHex } from "@zk-email/helpers";
-import { generateCircuitInputs } from "@zk-email/helpers";
+import { generateTwitterVerifierCircuitInputs } from "@zk-email/helpers";
 import { verifyDKIMSignature } from "@zk-email/helpers"
 import fs from "fs"
 import path from "path"
@@ -123,14 +123,14 @@ export async function generateTwitterVerifierCircuitInputs() {
       );
     const dkimResult = await verifyDKIMSignature(Buffer.from(rawEmail));
     const emailVerifierInputs = generateCircuitInputs({
-        rsaSignature: dkimResult.signature,
-        rsaPublicKey: dkimResult.publicKey,
-        body: dkimResult.body,
-        bodyHash:dkimResult.bodyHash,
-        message: dkimResult.message,
-        shaPrecomputeSelector: STRING_PRESELECTOR,
-        maxMessageLength: MAX_HEADER_PADDED_BYTES,
-        maxBodyLength: MAX_BODY_PADDED_BYTES
+        signature: dkimResult.signature,
+        pubkey: dkimResult.pubkey,
+        emailBody: dkimResult.emailBody,
+        bodyHashIndex:dkimResult.bodyHashIndex,
+        emailHeader: dkimResult.emailHeader,
+        precomputedSHA: STRING_PRESELECTOR,
+        emailHeaderLength: MAX_HEADER_PADDED_BYTES,
+        emailBodyLength: MAX_BODY_PADDED_BYTES
     });
 
     const bodyRemaining = emailVerifierInputs.in_body_padded!.map(c => Number(c));
@@ -172,75 +172,78 @@ To set up your Twitter circuit, follow these steps:
 
 ### Step 1: Integrate the Required Files into Your Circom File
 
-To build your circom circuit, you need to import two files. The first one is the `email-verifier.circom` from our library. The second one is the `twitter_reset_regex.circom` file that you generated earlier in this tutorial.
+To build your circom circuit, you need to import a couple files. The first one is the `email-verifier.circom` from our library. The second one is the `twitter_reset_regex.circom` file that you generated earlier in this tutorial. Latly, you need `from_addr_regex.circom`.
 
 ```circom
 include "@zk-email/circuits/email-verifier.circom";
 include "/twitter_reset_regex.circom";
+include "@zk-email/zk-regex-circom/circuits/common/from_addr_regex.circom";
 ```
 
-The `email-verifier.circom` file validates each of the inputs to the circuit, while the `twitter_reset_regex.circom` file scans the email body for the '@username', ensuring it adheres to the specified regex definition.
+The `email-verifier.circom` file validates each of the inputs to the circuit, while the `twitter_reset_regex.circom` file scans the email body for the '@username', ensuring it adheres to the specified regex definition. The `from_addr_regex.circom` uses regex to verify the "from" address in an email.
 
 ### Step 2: Start Your Circuit Template
 
 ```circom
-template TwitterVerifier(max_header_bytes, max_body_bytes, n, k, pack_size) {}
+template TwitterVerifier(maxHeaderLength, maxBodyLength, n, k, exposeFrom) {}
 ```
 
 In this step, we start the circuit template with the following arguments:
 
-`max_header_bytes = 1024` - This is the maximum number of bytes in the header.
+`maxHeaderLength = 1024` - This is the maximum number of bytes in the header.
 
-`max_body_bytes = 1536` - This is the maximum number of bytes in the body after the precomputed slice.
+`maxBodyLength = 1536` - This is the maximum number of bytes in the body after the precomputed slice.
 
 `n = 121` - This is the number of bits in each chunk of the pubkey (RSA parameter).
 
 `k = 17` - This is the number of chunks in the pubkey (RSA parameter). Note that 121 * 17 > 2048.
 
-`pack_size = 31` - This is the number of bytes that can fit into a 255ish bit signal (can increase later).
+`exposeFrom - This is the number of bytes that can fit into a 255ish bit signal (can increase later).
 
 
 ### Step 3: Define Your Circuit Inputs and Outputs
 
 ```circom
-    signal input in_padded[max_header_bytes];
+      signal input emailHeader[maxHeadersLength];
+    signal input emailHeaderLength;
     signal input pubkey[k];
     signal input signature[k];
-    signal input in_len_padded_bytes;
-    signal input address;
-    signal input body_hash_idx;
-    signal input precomputed_sha[32];
-    signal input in_body_padded[max_body_bytes];
-    signal input in_body_len_padded_bytes;
-    signal input twitter_username_idx;
+    signal input emailBody[maxBodyLength];
+    signal input emailBodyLength;
+    signal input bodyHashIndex;
+    signal input precomputedSHA[32];
+    signal input twitterUsernameIndex;
+    signal input address; 
 
-    signal output pubkey_hash;
-    signal output reveal_twitter_packed[max_twitter_packed_bytes];
+
+    signal output pubkeyHash;
+    signal output twitterUsername;
+
 ```
 
 The circuit's inputs are all private unless explicitly stated otherwise, while outputs are always public. In this example, we have several inputs and outputs.
 
 **Inputs**
 
-`in_padded[max_header_bytes]` - Prehashed email data.
+`emailHeader[maxHeadersLength]` - Prehashed email data.
 
 `pubkey[k]` - RSA public key.
 
 `signature[k]` - RSA signature.
 
-`in_len_padded_bytes` - Length of the email, including padding.
+`emailBody[maxBodyLength]` - Length of the email body, including padding.
 
 `address` - Wallet address.
 
-`body_hash_idx` - Index of the body hash.
+`bodyHashIndex` - Index of the body hash.
 
-`twitter_username_idx` - Index of twitter username.
+`twitterUsernameIndex` - Index of twitter username.
 
 **Outputs**
 
-`pubkey_hash` - Hash of the public key, cross-referenced with the public key in our DKIM registry to authenticate the origins of the email.
+`pubkeyHash` - Hash of the public key, cross-referenced with the public key in our DKIM registry to authenticate the origins of the email.
 
-`reveal_twitter_packed` - Packed Twitter username that has been verified and is ready for reveal.
+`twitterUsername` - Packed Twitter username that has been verified and is ready for reveal.
 
 ### Step 3: Define the EmailVerifier Component
 
@@ -248,46 +251,67 @@ This part of the code defines the EmailVerifier component and assigns the necess
 
 ```circom
 component EV = EmailVerifier(max_header_bytes, max_body_bytes, n, k, 0);
-    EV.in_padded <== in_padded;
+     EV.emailHeader <== emailHeader;
     EV.pubkey <== pubkey;
     EV.signature <== signature;
-    EV.in_len_padded_bytes <== in_len_padded_bytes;
-    EV.body_hash_idx <== body_hash_idx;
-    EV.precomputed_sha <== precomputed_sha;
-    EV.in_body_padded <== in_body_padded;
-    EV.in_body_len_padded_bytes <== in_body_len_padded_bytes;
+    EV.emailHeaderLength <== emailHeaderLength;
+    EV.bodyHashIndex <== bodyHashIndex;
+    EV.precomputedSHA <== precomputedSHA;
+    EV.emailBody <== emailBody;
+    EV.emailBodyLength <== emailBodyLength;
 
-    pubkey_hash <== EV.pubkey_hash;
+    pubkeyHash <== EV.pubkeyHash;
 ```
 
-### Step 4: Add the Twitter Username Verification Component
+### Step 4: Regex verification of the "From" address and Twitter username
 
-In this part of the code, we will add the code to verify the Twitter username that is found in the email body.
+This section explains how we utilize regular expressions (regex) to verify both the "From" email address and the Twitter username found within the email body.
 
- We start by defining the maximum length of a Twitter username and calculating the maximum number of bytes it can occupy when packed.
-
-```javascript
- var max_twitter_len = 21;
- var max_twitter_packed_bytes = count_packed(max_twitter_len, pack_size);
-```
-
-Next, we use the `TwitterResetRegex` function to compute the regex states on each character in the email body. This function is part of the circom code we generated earlier. It ensures that at least one match is found in the email body, i.e., the match count is not zero.
+#### From Email Address Verification
 
 ```circom
-    signal (twitter_regex_out, twitter_regex_reveal[max_body_bytes]) <== TwitterResetRegex(max_body_bytes)(in_body_padded);
-    signal is_found_twitter <== IsZero()(twitter_regex_out);
-    is_found_twitter === 0;
+if (exposeFrom) {
+signal input fromEmailIndex;
+signal (fromEmailFound, fromEmailReveal[maxHeadersLength]) <== FromAddrRegex(maxHeadersLength)(emailHeader);
+fromEmailFound === 1;
+}
 ```
-Finally, we pack the Twitter username for output, into a minimal fixed number of bytes using the `ShiftAndPackMaskedStr` function. This packing process combines 31 bytes into a single 255 bit circom signal, and the shift process isolates the match and moves it to the start of the output. It is necessary to ensure that the username fits into the minimal output signal size.
+
+
+In this code snippet, `FromAddrRegex` is applied to the `emailHeader` to search for the "From" address. The result is a binary signal `fromEmailFound` which indicates whether the regex pattern was successfully matched (`1` for found, `0` for not found). If found, the `fromEmailReveal` array contains the characters of the "From" address extracted from the header.
+
+Following the detection, the "From" address is then packed into a more compact format for efficient handling within the circuit:
+
 ```
- reveal_twitter_packed <== ShiftAndPackMaskedStr(max_body_bytes, max_twitter_len, pack_size)(twitter_regex_reveal, twitter_username_idx);
+var maxEmailLength = 255;
+signal output fromEmailAddrPacks[8] <== PackRegexReveal(maxHeadersLength, maxEmailLength)(fromEmailReveal, fromEmailIndex);
 ```
+
+#### Twitter Username Verification
+
+Similarly, the Twitter username verification uses a regex pattern to scan the email body.
+
+```
+signal (twitterFound, twitterReveal[maxBodyLength]) <== TwitterResetRegex(maxBodyLength)(emailBody);
+twitterFound === 1;
+```
+
+
+Here, `TwitterResetRegex` is used to parse the `emailBody`. The `twitterFound` signal indicates the presence of a Twitter username. If the username is found, `twitterReveal` will contain the characters of the Twitter handle.
+
+Once the Twitter username is identified, it is packed into an integer format to ensure it fits within a single field element of the circuit, optimizing both space and verification speed:
+ 
+
+ ```
+var maxTwitterUsernameLength = 21;
+signal twitterUsernamePacks[1] <== PackRegexReveal(maxBodyLength, maxTwitterUsernameLength)(twitterReveal, twitterUsernameIndex);
+twitterUsername <== twitterUsernamePacks[0];
+ ```
 
 For the finished circuit, refer to the following code:
 
 - [Twitter circom code](https://github.com/zkemail/zk-email-verify/blob/main/packages/twitter-verifier-circuits/twitter.circom)
 
-To understand the contracts on-chain that verify this proof, you can peek at the [smart contracts](https://github.com/zkemail/zk-email-verify/blob/main/packages/contracts/) as well. 
 
 ## Compiling and Computing the Witness
 
