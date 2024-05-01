@@ -15,9 +15,9 @@ const TabContent2 = ({ setTwitterInput, twitterInput }: TabContent2Props) => {
       <TabContent
         title={"Proof of Twitter"}
         description={
-          "Prove you own a Twitter username, via proving any email from Twitter."
+          "Prove you own a Twitter username on-chain, via any email from Twitter."
         }
-        href={"https://zkemail.xyz/"}
+        href={"https://twitter.prove.email/"}
         button={"Mint Twitter Proof"}
         className="flex flex-col md:flex-row items-center max-lg:mt-10 max-md:text-center gap-x-20 gap-y-10"
       >
