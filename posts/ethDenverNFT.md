@@ -5,7 +5,7 @@ authors: ["Elo mukoro"]
 type: Post
 draft: false
 slug: "ethDenverNFT"
-category: "2 minute read"
+category: "2-minute read"
 tags: ["crypto", "zk"]
 description: "How to claim your NFT using Email Wallet"
 ---
@@ -24,7 +24,7 @@ After the tap, a modal will appear, giving you two options to claim your NFT:
 Enter your email address to receive your NFT. This will also create your very own Email Wallet if you don't have one yet. Your NFTs will be accessible right from your inbox!
 
 #### Option 2: Withdraw to an EOA
-If you're already a crypto enthusiast with your own wallet, you can choose to directly withdraw your NFT to your Externally Owned Account (EOA). Just enter your wallet address, and your NFT will be on its way.
+If you're already a crypto enthusiast with your wallet, you can choose to directly withdraw your NFT to your Externally Owned Account (EOA). Just enter your wallet address, and your NFT will be on its way.
 
 ### Step 3: Confirm and Receive
 Once you've made your choice and entered the necessary information, confirm the action. Your NFT will be minted and either sent to your Email Wallet or your specified EOA.
@@ -39,7 +39,7 @@ If you initially chose to receive your NFT in your Email Wallet but later decide
 ### Step 5: Enjoy Your NFT
 Whether it's in your Email Wallet or personal wallet, your NFT is a token of the great times at ETH Denver. Show it off, trade it, or keep it as a memento—it's yours to enjoy!
 
-We've streamlined the process to ensure you spend less time on technicalities and more time enjoying the event.
+We've streamlined the process so that you spend less time on technicalities and more time enjoying the event.
 
 
 ---
@@ -77,7 +77,7 @@ Below is a summary of the API endpoints provided by our Relayer service.
 
 1. **Create Account**
    - **Description**: Creates a new email wallet for a user if an account does not already exist. 
-   - **Endpoint**: `POST /api/createAccount`
+   - **Endpoint**: `POST /API/createAccount`
    - **Body**:
      ```json
      {
@@ -87,7 +87,7 @@ Below is a summary of the API endpoints provided by our Relayer service.
 
 2. **Check Account Creation**
    - **Description**: Verifies if the account was successfully created or already exists.
-   - **Endpoint**: `POST /api/isAccountCreated`
+   - **Endpoint**: `POST /API/isAccountCreated`
    - **Body**:
      ```json
      {
@@ -97,7 +97,7 @@ Below is a summary of the API endpoints provided by our Relayer service.
 
 3. **Send Tokens**
    - **Description**: Sends tokens from the user's Email Wallet to another address or Email Wallet.
-   - **Endpoint**: `POST /api/send`
+   - **Endpoint**: `POST /API/send`
    - **Body**:
      ```json
      {
@@ -111,7 +111,7 @@ Below is a summary of the API endpoints provided by our Relayer service.
 
 4. **Get Wallet Address**
    - **Description**: Retrieves the wallet address of the Email Wallet, necessary for direct transfers or interactions with other smart contracts.
-   - **Endpoint**: `POST /api/getWalletAddress`
+   - **Endpoint**: `POST /API/getWalletAddress`
    - **Body**:
      ```json
      {
@@ -121,8 +121,8 @@ Below is a summary of the API endpoints provided by our Relayer service.
      ```
 
 5. **NFT Transfer**
-   - **Description**: For transferring NFTs from one Email Wallet to another or to an EOA.
-   - **Endpoint**: `POST /api/nftTransfer`
+   - **Description**: For transferring NFTs from one Email Wallet to another or an EOA.
+   - **Endpoint**: `POST /API/nftTransfer`
    - **Body**:
      ```json
      {
@@ -134,7 +134,15 @@ Below is a summary of the API endpoints provided by our Relayer service.
      }
      ```
 
-These APIs provide developers with the necessary tools to integrate Email Wallet functionalities into their own applications, events, and more. By leveraging these endpoints, developers can enable account verification, facilitate token and NFT transfers, and access wallet addresses directly through email interactions. This integration not only abstracts the complexities of blockchain transactions but also opens up a world of possibilities for application development, enhancing user experience with innovative email-based wallet solutions. 
+These APIs make it easy for developers to integrate Email Wallet functionalities into their applications, events, and more.
+
+### Event Recap
+
+ETH Denver 2024 was a big success, highlighting the practical applications of our email wallet technology. Throughout the event, we demonstrated the real-time functionalities of our system, which resulted in the minting of **49 NFTs**. Each of these NFTs, now traceable via the [block explorer](https://sepolia.explorer.zksync.io/address/0x632C10DFd070059c7ED1dAb6C7f384666174d984), represents a unique digital memento of the interactions and experiences shared at ETH Denver. This entire process was facilitated without requiring seed phrases, allowing participation from users regardless of their familiarity with cryptocurrency. We hope to see this being used for multiple events and activations in the future to allow for cleaner UX experiences for end users.
+
+---
+
+### Resources
 
 For further exploration and implementation, check out these resources:
 
@@ -144,5 +152,3 @@ For further exploration and implementation, check out these resources:
 
 
 If you have any questions or need assistance, reach out to the team via telegram: https://t.me/zkemail.
-
-Happy tapping and collecting at ETH Denver!
