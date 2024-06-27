@@ -21,7 +21,7 @@ Engage with others by tapping their NFC Badge. Each tap is a unique interaction 
 After the tap, a modal will appear, giving you two options to claim your NFT:
 
 #### Option 1: Use Your Email
-Enter your email address to receive your NFT. This will also create your very own Email Wallet if you don't have one yet. It's like a digital pocket for your NFTs, accessible right from your inbox!
+Enter your email address to receive your NFT. This will also create your very own Email Wallet if you don't have one yet. Your NFTs will be accessible right from your inbox!
 
 #### Option 2: Withdraw to an EOA
 If you're already a crypto enthusiast with your own wallet, you can choose to directly withdraw your NFT to your Externally Owned Account (EOA). Just enter your wallet address, and your NFT will be on its way.
@@ -41,7 +41,8 @@ Your NFT represents an interaction at ETH Denver, and can be sent, traded, or so
 
 ## Retrospective
 
-We had 49 total people respond to their NFT claim emails (thus sending a transaction on chain), and people often replied hours after getting the email. 
+
+We had 49 total people respond to their NFT claim emails (thus sending a transaction on chain), and people often replied hours after getting the email. Check out the [block explorer](https://sepolia.explorer.zksync.io/address/0x632C10DFd070059c7ED1dAb6C7f384666174d984).
 
 ## Does your app want to add email-based NFT minting?
 
@@ -69,3 +70,15 @@ fetch('https://api.emailwallet.org/mint', {
 ```
 
 On our side, we use the authentication from the 'auth' field -- a zk proof or signature is recommended for maximum security, but a password is ok for low-stakes experiments -- and once it verifies, we mint the NFT that that ZK proof corresponds to.
+
+This entire process was facilitated without requiring seed phrases, allowing participation from users regardless of their familiarity with cryptocurrency. We hope to see this being used for multiple events and activations in the future to allow for cleaner UX experiences for end users.
+
+
+---
+
+For further exploration and implementation, check out these resources:
+
+- Email Wallet repo: https://github.com/zkemail/email-wallet
+- Email Wallet application: https://emailwallet.org/app
+- Email Wallet technical breakdown: https://prove.email/blog/emailwallet
+=======
